@@ -84,10 +84,33 @@ h1 em{color:var(--gold);font-style:italic;display:block;font-family:'Cinzel',ser
 footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .fl{font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;letter-spacing:3px;text-transform:uppercase}
 .fc{font-size:.68rem;letter-spacing:1px;color:var(--gray)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fi{opacity:0;animation:fadeUp .7s ease forwards}
-.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}.nav-links{display:none}.section,.about-section,.reviews-section,.info-section,.cta-section{padding:4rem 1.5rem}.services-grid,.about-inner,.rev-grid,.info-inner{grid-template-columns:1fr}}
+/* NAV SCROLL */
+nav{transition:background .3s,border-color .3s}
+nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5)}
+/* CARD TILT */
+.svc{will-change:transform}
+.svc-tilt-active{transition:transform .08s ease-out,box-shadow .08s ease-out!important}
+.svc-tilt-reset{transition:transform .35s ease,box-shadow .35s ease,background .3s!important}
+/* CARD FLIP */
+.svc-flipper{transform-style:preserve-3d;cursor:pointer;overflow:visible}
+.svc.svc-flipper{padding:0;min-height:260px}
+.svc-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:3rem 2.5rem;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start}
+.svc-front{background:var(--black)}
+.svc-back{background:var(--black2);transform:rotateY(180deg);align-items:center;justify-content:center;text-align:center;border:1px solid rgba(201,168,76,.4)}
+.svc-flipper.flipped{transform:perspective(900px) rotateY(180deg)!important;transition:transform .55s ease!important}
+.svc-flipper:not(.flipped){transition:transform .55s ease,box-shadow .35s ease,background .3s}
+.svc-back .svc-name{margin-bottom:1.2rem}
+.svc-back-phone{font-size:.82rem;color:var(--gray);margin-top:.8rem}
+/* CANVAS */
+#heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+@media(max-width:900px){#heroCanvas{display:none}.svc.svc-flipper{min-height:auto}.svc-face{position:relative;inset:auto}}
+/* CURSOR TRAIL */
+.trail-dot{position:fixed;width:6px;height:6px;border-radius:50%;background:#C9A84C;pointer-events:none;z-index:9997;transform:translate(-50%,-50%) scale(1);transition:opacity .4s ease,transform .4s ease}
+.trail-dot.fading{opacity:0!important;transform:translate(-50%,-50%) scale(0)}
+/* INK SPLASH */
+@keyframes inkSplash{0%{transform:translate(-50%,-50%) scale(0);opacity:.8}60%{opacity:.4}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.ink-splash{position:fixed;width:120px;height:120px;border-radius:50%;border:1.5px solid #C9A84C;pointer-events:none;z-index:9996;animation:inkSplash .55s ease-out forwards}
 .cur{color:var(--gold);position:fixed;width:8px;height:8px;background:currentColor;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}.cur-ring{position:fixed;width:32px;height:32px;border:1.5px solid currentColor;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.5}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center}.modal-overlay.active{display:flex}.modal-box{background:#fff;max-width:400px;width:90%;padding:2.5rem;text-align:center;position:relative;animation:popIn .25s ease}.modal-box h3{font-size:1.2rem;color:#1a1a1a;margin-bottom:.5rem;font-weight:700}.modal-box p{font-size:.85rem;color:#666;line-height:1.6;margin-bottom:1.5rem}.modal-phone{font-size:1.8rem;font-weight:900;color:#C9A84C;display:block;margin-bottom:1rem;text-decoration:none}.modal-addr{font-size:.82rem;color:#888;margin-bottom:1.5rem}.modal-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.modal-btn-call{background:#C9A84C;color:#fff;padding:12px 28px;border:none;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-btn-map{background:transparent;color:#C9A84C;padding:11px 28px;border:1.5px solid #C9A84C;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 </style>
@@ -105,6 +128,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
 </nav>
 
 <section class="hero">
+  <canvas id="heroCanvas"></canvas>
   <div class="hero-bg-text">TATTOO</div>
   <div class="hero-inner">
     <div>
@@ -135,12 +159,30 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
   <div class="eyebrow">Services</div>
   <h2 class="title">What We <em>Offer</em></h2>
   <div class="services-grid">
-    <div class="svc"><div class="svc-name">Custom Tattoos</div><div class="svc-price">$150+</div><div class="svc-desc">Fully custom designs created in collaboration with you. Barry listens, sketches, and delivers art that tells your story.</div></div>
-    <div class="svc"><div class="svc-name">Cover Ups</div><div class="svc-price">$150+</div><div class="svc-desc">Expert cover-up work that actually looks beautiful. Barry specializes in transforming old tattoos into something you love.</div></div>
-    <div class="svc"><div class="svc-name">Piercings</div><div class="svc-price">$65+</div><div class="svc-desc">Professional body piercings with aftercare guidance. Lexi handles all piercing services with expertise and care.</div></div>
-    <div class="svc"><div class="svc-name">Apprentice Tattoos</div><div class="svc-price">$80</div><div class="svc-desc">Quality work at an accessible price. Great for smaller pieces and first tattoos under expert supervision.</div></div>
-    <div class="svc"><div class="svc-name">Jewelry Changes</div><div class="svc-price">$15</div><div class="svc-desc">Trouble with your piercing jewelry? We'll swap it out safely and quickly.</div></div>
-    <div class="svc"><div class="svc-name">Consultations</div><div class="svc-price">Free</div><div class="svc-desc">Book a free consultation to discuss your ideas. Barry will talk through your vision and provide honest guidance.</div></div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Custom Tattoos</div><div class="svc-price">$150+</div><div class="svc-desc">Fully custom designs created in collaboration with you. Barry listens, sketches, and delivers art that tells your story.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Book This Service</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Cover Ups</div><div class="svc-price">$150+</div><div class="svc-desc">Expert cover-up work that actually looks beautiful. Barry specializes in transforming old tattoos into something you love.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Book This Service</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Piercings</div><div class="svc-price">$65+</div><div class="svc-desc">Professional body piercings with aftercare guidance. Lexi handles all piercing services with expertise and care.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Book This Service</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Apprentice Tattoos</div><div class="svc-price">$80</div><div class="svc-desc">Quality work at an accessible price. Great for smaller pieces and first tattoos under expert supervision.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Book This Service</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Jewelry Changes</div><div class="svc-price">$15</div><div class="svc-desc">Trouble with your piercing jewelry? We'll swap it out safely and quickly.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Book This Service</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
+    <div class="svc svc-flipper">
+      <div class="svc-face svc-front"><div class="svc-name">Consultations</div><div class="svc-price">Free</div><div class="svc-desc">Book a free consultation to discuss your ideas. Barry will talk through your vision and provide honest guidance.</div></div>
+      <div class="svc-face svc-back"><div class="svc-name">Schedule a Chat</div><a href="tel:6363957041" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}" class="btn-gold" style="margin-top:1rem;display:inline-block">Book Now</a><div class="svc-back-phone">(636) 395-7041</div></div>
+    </div>
   </div>
 </div>
 
@@ -204,18 +246,13 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
   <h2>Ready to Wear<em>Art Forever?</em></h2>
   <p>Call Barry today to book your session or schedule a free consultation. Walk-ins welcome based on availability.</p>
   <a href="tel:6363957041" class="cta-phone">(636) 395-7041</a>
-  <a href="tel:6363957041" class="btn-gold" style="font-size:.85rem;padding:16px 48px">Book Your Session</a>
-  <a href="tel:6363957041" class="btn-gold" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Your Session</a>
+  <a href="tel:6363957041" class="btn-gold" style="font-size:.85rem;padding:16px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Your Session</a>
 </div>
 
 <footer>
   <div class="fl">Barry The Needle</div>
   <div class="fc">© 2026 Barrytheneedle Studio · 2048 Campus Dr, St. Charles, MO 63301</div>
 </footer>
-<script>
-const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.style.opacity='1';i.target.style.transform='translateY(0)'}})},{threshold:0.1});
-document.querySelectorAll('.svc,.rev,.al,.ib,.hero-stat,.hr').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(14px)';el.style.transition='opacity .5s ease,transform .5s ease';o.observe(el)});
-</script>
 <div class="cur" id="cur" style="background:#C9A84C"></div><div class="cur-ring" id="curR" style="border-color:#C9A84C"></div>
 <script>
 const C=document.getElementById("cur"),R=document.getElementById("curR");
@@ -224,6 +261,189 @@ document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;C.style.left
 (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;R.style.left=rx+"px";R.style.top=ry+"px";requestAnimationFrame(loop)})();
 document.querySelectorAll("a,button,.svc,.svc-card,.rev,.service-card,.trust-card,.stat").forEach(el=>{el.addEventListener("mouseenter",()=>{R.style.transform="translate(-50%,-50%) scale(2.2)";R.style.opacity="0.9"});el.addEventListener("mouseleave",()=>{R.style.transform="translate(-50%,-50%) scale(1)";R.style.opacity="0.5"})});
 </script>
-<div class="modal-overlay" id="bookModal"><div class="modal-box"><button class="modal-close" onclick="closeModal()"></body>times;</button><h3>Barrytheneedle Studio</h3><p>Ready to book? Give us a call or find us on the map.</p><a href="tel:6363957041" class="modal-phone">(636) 395-7041</a><div class="modal-addr">2048 Campus Dr, St. Charles, MO 63301</div><div class="modal-btns"><a href="tel:6363957041" class="modal-btn-call">Call Now</a><a href="https://maps.google.com/?q=2048+Campus+Dr+St+Charles+MO" target="_blank" class="modal-btn-map">Get Directions</a></div></div></div><script>function openBookModal(){document.getElementById('bookModal').classList.add('active')}function closeModal(){document.getElementById('bookModal').classList.remove('active')}document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeModal()});</script>
+<div class="modal-overlay" id="bookModal"><div class="modal-box"><button class="modal-close" onclick="closeModal()">&times;</button><h3>Barrytheneedle Studio</h3><p>Ready to book? Give us a call or find us on the map.</p><a href="tel:6363957041" class="modal-phone">(636) 395-7041</a><div class="modal-addr">2048 Campus Dr, St. Charles, MO 63301</div><div class="modal-btns"><a href="tel:6363957041" class="modal-btn-call">Call Now</a><a href="https://maps.google.com/?q=2048+Campus+Dr+St+Charles+MO" target="_blank" class="modal-btn-map">Get Directions</a></div></div></div><script>function openBookModal(){document.getElementById('bookModal').classList.add('active')}function closeModal(){document.getElementById('bookModal').classList.remove('active')}document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeModal()});</script>
+
+<!-- CDN Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Nav scroll enhancement -->
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var logo=document.querySelector('.logo');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>40){
+      nav.classList.add('scrolled');
+      logo.style.transform='scale(0.92)';
+      logo.style.transition='transform .3s';
+    }else{
+      nav.classList.remove('scrolled');
+      logo.style.transform='scale(1)';
+    }
+  },{passive:true});
+})();
+</script>
+
+<!-- GSAP ScrollTrigger animations -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+// Hero entrance
+gsap.from(['.hero-tag','h1','.hero-sub','.hero-btns'],{y:32,opacity:0,duration:0.8,stagger:0.15,ease:'power3.out',delay:0.3});
+gsap.from('.hero-stat',{y:20,opacity:0,duration:0.7,stagger:0.12,ease:'power2.out',delay:0.5});
+// Hero bg-text parallax
+gsap.to('.hero-bg-text',{y:'-30%',ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+// Service cards
+gsap.from('.svc',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out',clearProps:'transform',scrollTrigger:{trigger:'.services-grid',start:'top 80%',once:true}});
+// Review cards
+gsap.from('.rev',{y:24,opacity:0,duration:0.6,stagger:0.12,ease:'power2.out',scrollTrigger:{trigger:'.rev-grid',start:'top 80%',once:true}});
+// About + info items
+gsap.from('.al',{x:-20,opacity:0,duration:0.5,stagger:0.08,ease:'power1.out',scrollTrigger:{trigger:'.about-section',start:'top 75%',once:true}});
+gsap.from('.ib',{x:-20,opacity:0,duration:0.5,stagger:0.08,ease:'power1.out',scrollTrigger:{trigger:'.info-section',start:'top 80%',once:true}});
+gsap.from('.hr',{x:-20,opacity:0,duration:0.5,stagger:0.07,ease:'power1.out',scrollTrigger:{trigger:'.hours-list',start:'top 85%',once:true}});
+// CTA heading
+gsap.from('.cta-section h2',{y:28,opacity:0,duration:0.8,ease:'power3.out',scrollTrigger:{trigger:'.cta-section',start:'top 80%',once:true}});
+</script>
+
+<!-- Cursor particle trail -->
+<script>
+(function(){
+  var POOL=20,pool=[],idx=0,lastX=-999,lastY=-999,MIN=14;
+  for(var i=0;i<POOL;i++){var d=document.createElement('div');d.className='trail-dot';d.style.opacity='0';document.body.appendChild(d);pool.push(d);}
+  document.addEventListener('mousemove',function(e){
+    var dx=e.clientX-lastX,dy=e.clientY-lastY;
+    if(Math.sqrt(dx*dx+dy*dy)<MIN)return;
+    lastX=e.clientX;lastY=e.clientY;
+    var dot=pool[idx%POOL];idx++;
+    dot.classList.remove('fading');
+    dot.style.left=e.clientX+'px';
+    dot.style.top=e.clientY+'px';
+    var sz=(3+Math.random()*4)+'px';
+    dot.style.width=sz;dot.style.height=sz;
+    dot.style.opacity='0.65';
+    requestAnimationFrame(function(){dot.classList.add('fading');});
+  });
+})();
+</script>
+
+<!-- Click ink splash -->
+<script>
+document.addEventListener('click',function(e){
+  var s=document.createElement('div');
+  s.className='ink-splash';
+  s.style.left=e.clientX+'px';
+  s.style.top=e.clientY+'px';
+  document.body.appendChild(s);
+  s.addEventListener('animationend',function(){s.parentNode&&s.parentNode.removeChild(s);},{once:true});
+});
+</script>
+
+<!-- 3D card tilt -->
+<script>
+document.querySelectorAll('.svc').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    if(card.classList.contains('flipped'))return;
+    var r=card.getBoundingClientRect();
+    var dx=(e.clientX-r.left-r.width/2)/(r.width/2);
+    var dy=(e.clientY-r.top-r.height/2)/(r.height/2);
+    var rotX=-dy*8,rotY=dx*8;
+    card.classList.add('svc-tilt-active');
+    card.classList.remove('svc-tilt-reset');
+    card.style.transform='perspective(800px) rotateX('+rotX+'deg) rotateY('+rotY+'deg)';
+    card.style.boxShadow=(rotY*1.5)+'px '+(rotX*1.5)+'px 28px rgba(201,168,76,0.2)';
+  });
+  card.addEventListener('mouseleave',function(){
+    if(card.classList.contains('flipped'))return;
+    card.classList.remove('svc-tilt-active');
+    card.classList.add('svc-tilt-reset');
+    card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg)';
+    card.style.boxShadow='none';
+  });
+});
+</script>
+
+<!-- 3D card flip -->
+<script>
+(function(){
+  var flipped=null;
+  document.addEventListener('click',function(e){
+    if(flipped&&!flipped.contains(e.target)){
+      flipped.classList.remove('flipped');
+      flipped=null;
+    }
+  });
+  document.querySelectorAll('.svc-flipper').forEach(function(card){
+    card.addEventListener('click',function(e){
+      if(e.target.tagName==='A')return;
+      var isFlipped=card.classList.contains('flipped');
+      if(flipped&&flipped!==card)flipped.classList.remove('flipped');
+      if(isFlipped){card.classList.remove('flipped');flipped=null;}
+      else{card.classList.add('flipped');flipped=card;}
+    });
+  });
+})();
+</script>
+
+<!-- Three.js hero particle field -->
+<script>
+(function(){
+  if(!window.THREE||window.innerWidth<=900)return;
+  var canvas=document.getElementById('heroCanvas');
+  if(!canvas)return;
+  var W=canvas.offsetWidth,H=canvas.offsetHeight;
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:false});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(W,H);
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(60,W/H,0.1,1000);
+  camera.position.z=80;
+  var COUNT=220;
+  var pos=new Float32Array(COUNT*3);
+  var vel=[];
+  for(var i=0;i<COUNT;i++){
+    pos[i*3]=(Math.random()-.5)*180;
+    pos[i*3+1]=(Math.random()-.5)*110;
+    pos[i*3+2]=(Math.random()-.5)*60;
+    vel.push({x:(Math.random()-.5)*.045,y:.014+Math.random()*.028,z:(Math.random()-.5)*.02});
+  }
+  var geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  var mat=new THREE.PointsMaterial({color:0xC9A84C,size:1.6,transparent:true,opacity:0.55,sizeAttenuation:true});
+  var pts=new THREE.Points(geo,mat);
+  scene.add(pts);
+  var tCamX=0,tCamY=0,cCamX=0,cCamY=0;
+  document.addEventListener('mousemove',function(e){
+    var hero=document.querySelector('.hero');
+    var rect=hero.getBoundingClientRect();
+    if(e.clientY>rect.bottom)return;
+    tCamX=((e.clientX/window.innerWidth)-.5)*9;
+    tCamY=-((e.clientY/window.innerHeight)-.5)*6;
+  });
+  window.addEventListener('resize',function(){
+    if(window.innerWidth<=900)return;
+    W=canvas.offsetWidth;H=canvas.offsetHeight;
+    renderer.setSize(W,H);
+    camera.aspect=W/H;
+    camera.updateProjectionMatrix();
+  },{passive:true});
+  (function animate(){
+    requestAnimationFrame(animate);
+    var p=geo.attributes.position.array;
+    for(var i=0;i<COUNT;i++){
+      p[i*3]+=vel[i].x;p[i*3+1]+=vel[i].y;p[i*3+2]+=vel[i].z;
+      if(p[i*3+1]>58)p[i*3+1]=-58;
+      if(p[i*3]>92)p[i*3]=-92;
+      if(p[i*3]<-92)p[i*3]=92;
+    }
+    geo.attributes.position.needsUpdate=true;
+    cCamX+=(tCamX-cCamX)*.05;
+    cCamY+=(tCamY-cCamY)*.05;
+    camera.position.x=cCamX;camera.position.y=cCamY;
+    renderer.render(scene,camera);
+  })();
+})();
+</script>
+
 </body>
 </html>

@@ -111,6 +111,24 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
 /* INK SPLASH */
 @keyframes inkSplash{0%{transform:translate(-50%,-50%) scale(0);opacity:.8}60%{opacity:.4}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
 .ink-splash{position:fixed;width:120px;height:120px;border-radius:50%;border:1.5px solid #C9A84C;pointer-events:none;z-index:9996;animation:inkSplash .55s ease-out forwards}
+/* BOOKING FORM */
+.booking-section{background:var(--black3);border-top:1px solid var(--border);padding:7rem 3rem}
+.booking-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;margin-bottom:1.1rem}
+.form-group label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--white);font-family:'Raleway',sans-serif;font-size:.88rem;padding:.85rem 1rem;outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray);opacity:.7}
+.form-group select option{background:var(--black2);color:var(--white)}
+.form-group input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.4) sepia(1) saturate(4) hue-rotate(5deg);cursor:pointer}
+.file-upload-wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.file-upload-wrap input[type=file]{display:none}
+.file-upload-label{background:transparent;border:1px solid var(--border);color:var(--gray);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;padding:.6rem 1.2rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.file-upload-label:hover{border-color:var(--gold);color:var(--gold)}
+#fileName{font-size:.78rem;color:var(--gray)}
+.booking-success{padding:2rem 0}
+@media(max-width:900px){.booking-inner{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}}
 .cur{position:fixed;pointer-events:none;z-index:9999;transform:translate(-3px,-25px);filter:drop-shadow(0 0 5px rgba(201,168,76,.55));transition:opacity .15s}.cur-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(201,168,76,.6);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.45}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center}.modal-overlay.active{display:flex}.modal-box{background:#fff;max-width:400px;width:90%;padding:2.5rem;text-align:center;position:relative;animation:popIn .25s ease}.modal-box h3{font-size:1.2rem;color:#1a1a1a;margin-bottom:.5rem;font-weight:700}.modal-box p{font-size:.85rem;color:#666;line-height:1.6;margin-bottom:1.5rem}.modal-phone{font-size:1.8rem;font-weight:900;color:#C9A84C;display:block;margin-bottom:1rem;text-decoration:none}.modal-addr{font-size:.82rem;color:#888;margin-bottom:1.5rem}.modal-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.modal-btn-call{background:#C9A84C;color:#fff;padding:12px 28px;border:none;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-btn-map{background:transparent;color:#C9A84C;padding:11px 28px;border:1.5px solid #C9A84C;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 </style>
@@ -122,7 +140,7 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
     <li><a href="#services">Services</a></li>
     <li><a href="#about">Studio</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#info">Book</a></li>
+    <li><a href="#booking">Book</a></li>
   </ul>
   <a href="tel:6363957041" class="nav-cta" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Now</a>
 </nav>
@@ -242,6 +260,68 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
   </div>
 </div>
 
+<div class="booking-section" id="booking">
+  <div class="booking-inner">
+    <div>
+      <div class="eyebrow">Request Appointment</div>
+      <h2 class="title">Book Your <em>Session</em></h2>
+      <p style="font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:380px;margin-bottom:2rem">Fill out the form and Barry will call to confirm your appointment. Need to reach us sooner? <a href="tel:6363957041" style="color:var(--gold);text-decoration:none">(636) 395-7041</a></p>
+    </div>
+    <div>
+      <form id="bookingForm" name="booking" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="booking"/>
+        <div style="display:none"><input name="bot-field"/></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bName">Name</label>
+            <input type="text" id="bName" name="name" required placeholder="Your full name"/>
+          </div>
+          <div class="form-group">
+            <label for="bPhone">Phone</label>
+            <input type="tel" id="bPhone" name="phone" required placeholder="(636) 000-0000"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bService">Service</label>
+            <select id="bService" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Custom Tattoo</option>
+              <option>Cover Up</option>
+              <option>Piercing</option>
+              <option>Apprentice Tattoo</option>
+              <option>Jewelry Change</option>
+              <option>Consultation (Free)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bDate">Preferred Date</label>
+            <input type="date" id="bDate" name="date"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bIdea">Describe Your Idea</label>
+          <textarea id="bIdea" name="idea" rows="4" placeholder="Style, size, placement, inspiration..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Reference Image (optional)</label>
+          <div class="file-upload-wrap">
+            <input type="file" id="refFile" name="reference" accept="image/*"/>
+            <label for="refFile" class="file-upload-label">Choose Image</label>
+            <span id="fileName">No file chosen</span>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%;margin-top:.5rem;padding:16px;font-size:.82rem;letter-spacing:3px">Send Request</button>
+      </form>
+      <div id="bookingSuccess" class="booking-success" style="display:none">
+        <div class="eyebrow">Request Received</div>
+        <h3 class="title" style="font-size:clamp(1.5rem,3vw,2.8rem)">We'll Be In <em>Touch.</em></h3>
+        <p style="font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300">Barry received your request and will call to confirm. Can't wait? <a href="tel:6363957041" style="color:var(--gold);text-decoration:none">(636) 395-7041</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-section">
   <h2>Ready to Wear<em>Art Forever?</em></h2>
   <p>Call Barry today to book your session or schedule a free consultation. Walk-ins welcome based on availability.</p>
@@ -304,6 +384,7 @@ gsap.from('.ib',{x:-20,opacity:0,duration:0.5,stagger:0.08,ease:'power1.out',scr
 gsap.from('.hr',{x:-20,opacity:0,duration:0.5,stagger:0.07,ease:'power1.out',scrollTrigger:{trigger:'.hours-list',start:'top 85%',once:true}});
 // CTA heading
 gsap.from('.cta-section h2',{y:28,opacity:0,duration:0.8,ease:'power3.out',scrollTrigger:{trigger:'.cta-section',start:'top 80%',once:true}});
+gsap.from('#booking .form-group',{y:20,opacity:0,duration:0.5,stagger:0.07,ease:'power2.out',scrollTrigger:{trigger:'.booking-section',start:'top 80%',once:true}});
 </script>
 
 <!-- Cursor particle trail -->
@@ -381,6 +462,31 @@ document.querySelectorAll('.svc').forEach(function(card){
       if(isFlipped){card.classList.remove('flipped');flipped=null;}
       else{card.classList.add('flipped');flipped=card;}
     });
+  });
+})();
+</script>
+
+<!-- Booking form -->
+<script>
+(function(){
+  var form=document.getElementById('bookingForm');
+  var success=document.getElementById('bookingSuccess');
+  if(!form)return;
+  document.getElementById('refFile').addEventListener('change',function(){
+    document.getElementById('fileName').textContent=this.files[0]?this.files[0].name:'No file chosen';
+  });
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]');
+    btn.textContent='Sending...';btn.disabled=true;
+    try{
+      await fetch('/',{method:'POST',body:new FormData(form)});
+      form.style.display='none';
+      success.style.display='block';
+    }catch(err){
+      btn.textContent='Send Request';btn.disabled=false;
+      alert('Something went wrong. Please call us at (636) 395-7041.');
+    }
   });
 })();
 </script>

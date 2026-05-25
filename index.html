@@ -8,8 +8,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--black:#080808;--black2:#111;--black3:#1A1A1A;--gold:#C9A84C;--gold2:#E8C87A;--white:#F5F0E8;--gray:#7A7268;--border:rgba(201,168,76,0.2)}
-body{cursor:none;background:var(--black);color:var(--white);font-family:'Raleway',sans-serif;overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+body{background:var(--black);color:var(--white);font-family:'Raleway',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.97);border-bottom:1px solid var(--border)}
+nav.scrolled{backdrop-filter:blur(8px)}
 .logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s}
@@ -105,12 +106,7 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
 /* CANVAS */
 #heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
 @media(max-width:900px){#heroCanvas{display:none}.svc.svc-flipper{min-height:auto}.svc-face{position:relative;inset:auto}}
-/* CURSOR TRAIL */
-.trail-dot{position:fixed;width:6px;height:6px;border-radius:50%;background:#C9A84C;pointer-events:none;z-index:9997;transform:translate(-50%,-50%) scale(1);transition:opacity .4s ease,transform .4s ease}
-.trail-dot.fading{opacity:0!important;transform:translate(-50%,-50%) scale(0)}
-/* INK SPLASH */
-@keyframes inkSplash{0%{transform:translate(-50%,-50%) scale(0);opacity:.8}60%{opacity:.4}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
-.ink-splash{position:fixed;width:120px;height:120px;border-radius:50%;border:1.5px solid #C9A84C;pointer-events:none;z-index:9996;animation:inkSplash .55s ease-out forwards}
+/* (custom cursor + trail + ink splash removed — native cursor for better UX) */
 /* BOOKING FORM */
 .booking-section{background:var(--black3);border-top:1px solid var(--border);padding:7rem 3rem}
 .booking-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
@@ -129,8 +125,101 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
 #fileName{font-size:.78rem;color:var(--gray)}
 .booking-success{padding:2rem 0}
 @media(max-width:900px){.booking-inner{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}}
-.cur{position:fixed;pointer-events:none;z-index:9999;transform:translate(-3px,-25px);filter:drop-shadow(0 0 5px rgba(201,168,76,.55));transition:opacity .15s}.cur-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(201,168,76,.6);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.45}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center}.modal-overlay.active{display:flex}.modal-box{background:#fff;max-width:400px;width:90%;padding:2.5rem;text-align:center;position:relative;animation:popIn .25s ease}.modal-box h3{font-size:1.2rem;color:#1a1a1a;margin-bottom:.5rem;font-weight:700}.modal-box p{font-size:.85rem;color:#666;line-height:1.6;margin-bottom:1.5rem}.modal-phone{font-size:1.8rem;font-weight:900;color:#C9A84C;display:block;margin-bottom:1rem;text-decoration:none}.modal-addr{font-size:.82rem;color:#888;margin-bottom:1.5rem}.modal-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.modal-btn-call{background:#C9A84C;color:#fff;padding:12px 28px;border:none;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-btn-map{background:transparent;color:#C9A84C;padding:11px 28px;border:1.5px solid #C9A84C;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+/* ============ LENIS SMOOTH SCROLL ============ */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ============ SPLIT TEXT REVEAL ============ */
+.split-line{display:block;overflow:hidden;line-height:1.05}
+.split-char{display:inline-block;will-change:transform,opacity;transform:translateY(110%);opacity:0;transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .9s ease}
+.split-char.in{transform:translateY(0);opacity:1}
+.split-word{display:inline-block;white-space:nowrap}
+
+/* ============ MAGNETIC BUTTONS ============ */
+.magnetic{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.magnetic-inner{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.3,1);pointer-events:none}
+
+/* ============ HERO 3D LAYER ============ */
+.hero-3d{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-glow{position:absolute;width:60vw;height:60vw;max-width:900px;max-height:900px;border-radius:50%;background:radial-gradient(circle at center,rgba(201,168,76,0.15) 0%,rgba(201,168,76,0.04) 30%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;filter:blur(20px)}
+
+/* ============ PORTFOLIO HORIZONTAL SCROLL ============ */
+.portfolio-section{position:relative;background:var(--black);min-height:100vh}
+.portfolio-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.portfolio-track{display:flex;align-items:center;gap:2rem;padding:0 6vw;will-change:transform;height:100%}
+.portfolio-intro{flex-shrink:0;width:46vw;max-width:620px;display:flex;flex-direction:column;justify-content:center;padding-right:3rem}
+.portfolio-intro .title{margin-bottom:1.5rem}
+.portfolio-intro p{font-size:.92rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:420px}
+.portfolio-counter{margin-top:2.5rem;display:flex;align-items:baseline;gap:1rem;font-family:'Cinzel',serif;letter-spacing:3px;color:var(--gold);font-size:.7rem;text-transform:uppercase}
+.portfolio-counter span{font-size:2rem;color:var(--white)}
+.portfolio-tile{flex-shrink:0;width:38vw;max-width:520px;height:78vh;max-height:680px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%);border:1px solid var(--border);transition:border-color .5s}
+.portfolio-tile:hover{border-color:rgba(201,168,76,.55)}
+.portfolio-tile .ptile-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s cubic-bezier(.22,1,.36,1),filter .8s ease;filter:grayscale(.45) brightness(.65) contrast(1.05);will-change:transform}
+.portfolio-tile:hover .ptile-bg{transform:scale(1.08);filter:grayscale(0) brightness(.95) contrast(1)}
+.portfolio-tile .ptile-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;color:rgba(201,168,76,.25);font-size:8rem;letter-spacing:4px;background:linear-gradient(135deg,#161616 0%,#0a0a0a 100%)}
+.ptile-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.92));z-index:3;transform:translateY(20%);opacity:.7;transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .5s}
+.portfolio-tile:hover .ptile-info{transform:translateY(0);opacity:1}
+.ptile-style{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.ptile-name{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--white);letter-spacing:2px;text-transform:uppercase;line-height:1.2}
+.ptile-corner{position:absolute;top:1.2rem;right:1.2rem;width:36px;height:36px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:1px;z-index:3;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}
+.portfolio-cta{flex-shrink:0;width:34vw;max-width:440px;display:flex;flex-direction:column;justify-content:center;padding:0 2rem}
+.portfolio-cta h3{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--white);text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem;line-height:1.05}
+.portfolio-cta h3 em{color:var(--gold);font-style:italic}
+.portfolio-cta p{font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;margin-bottom:2rem}
+
+/* ============ PROCESS STICKY STEPS ============ */
+.process-section{position:relative;background:var(--black2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);height:420vh}
+.process-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.process-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2}
+.process-stage{position:relative;height:65vh;max-height:560px;display:flex;align-items:center;justify-content:center}
+.process-bignum{font-family:'Cinzel',serif;font-size:clamp(14rem,28vw,28rem);color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.6);line-height:.8;position:absolute;opacity:0;transform:translateY(40px) scale(.9);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.process-bignum.active{opacity:1;transform:translateY(0) scale(1)}
+.process-bignum.exit{opacity:0;transform:translateY(-40px) scale(1.1)}
+.process-content{position:relative;height:65vh;max-height:560px}
+.process-card{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.process-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.process-card.exit{opacity:0;transform:translateX(-40px)}
+.pc-eyebrow{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:14px}
+.pc-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.pc-title{font-family:'Cinzel',serif;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem}
+.pc-title em{color:var(--gold);font-style:italic;display:block}
+.pc-desc{font-size:.95rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:440px;margin-bottom:1.5rem}
+.pc-meta{display:flex;gap:2rem;border-top:1px solid var(--border);padding-top:1.2rem;margin-top:.5rem}
+.pcm-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.pcm-val{font-size:.85rem;color:var(--white)}
+.process-rail{position:absolute;left:2.5rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.4rem;z-index:5}
+.pr-dot{width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,.2);transition:background .4s,transform .4s;position:relative}
+.pr-dot::before{content:attr(data-label);position:absolute;left:24px;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);white-space:nowrap;opacity:0;transition:opacity .3s}
+.pr-dot.active{background:var(--gold);transform:scale(1.6)}
+.pr-dot.active::before{opacity:1;color:var(--gold)}
+
+/* ============ SECTION REVEAL UTILITIES ============ */
+.reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.77,0,.18,1)}
+.reveal-img.in{clip-path:inset(0 0 0 0)}
+
+/* ============ SCROLL PROGRESS BAR ============ */
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:200;transition:width .12s linear}
+
+/* ============ MOBILE OVERRIDES FOR NEW SECTIONS ============ */
+@media(max-width:900px){
+  .portfolio-section{height:auto}
+  .portfolio-pin{position:relative;height:auto;padding:5rem 0}
+  .portfolio-track{flex-direction:column;gap:1.5rem;padding:0 1.5rem;transform:none!important;height:auto}
+  .portfolio-intro,.portfolio-cta{width:100%;padding:0}
+  .portfolio-tile{width:100%;height:60vh;max-height:520px}
+  .process-section{height:auto}
+  .process-pin{position:relative;height:auto;padding:5rem 1.5rem}
+  .process-inner{grid-template-columns:1fr;gap:2rem;padding:0}
+  .process-stage,.process-content{height:auto;min-height:200px}
+  .process-bignum{position:relative;opacity:1;transform:none;font-size:6rem}
+  .process-card{position:relative;opacity:1;transform:none;pointer-events:auto;margin-bottom:3rem}
+  .process-rail{display:none}
+  .hero-glow{display:none}
+}
 </style>
 </head>
 <body>
@@ -138,6 +227,8 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
   <div class="logo">Barry The Needle</div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#process">Process</a></li>
     <li><a href="#about">Studio</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#booking">Book</a></li>
@@ -145,7 +236,10 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
   <a href="tel:6363957041" class="nav-cta" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Now</a>
 </nav>
 
+<div class="scroll-bar" id="scrollBar"></div>
+
 <section class="hero">
+  <div class="hero-glow"></div>
   <canvas id="heroCanvas"></canvas>
   <div class="hero-bg-text">TATTOO</div>
   <div class="hero-inner">
@@ -204,6 +298,60 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
   </div>
 </div>
 
+<section class="portfolio-section" id="portfolio">
+  <div class="portfolio-pin">
+    <div class="portfolio-track" id="portfolioTrack">
+      <div class="portfolio-intro">
+        <div class="eyebrow">Portfolio</div>
+        <h2 class="title" data-split>Work That <em>Speaks.</em></h2>
+        <p>Every piece is custom-built around the person wearing it. Scroll through recent sessions — fine line, color realism, cover-ups, and traditional. Each one started as a conversation.</p>
+        <div class="portfolio-counter"><span id="ptileCount">01</span><div>Featured · Scroll to Explore →</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="1">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">01</div>
+        <div class="ptile-info"><div class="ptile-style">Fine Line · Forearm</div><div class="ptile-name">Wildflower Study</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="2">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1542727365-19732a80dcfd?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">02</div>
+        <div class="ptile-info"><div class="ptile-style">Black & Grey · Sleeve</div><div class="ptile-name">Shadow Work</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="3">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">03</div>
+        <div class="ptile-info"><div class="ptile-style">Cover-Up · Shoulder</div><div class="ptile-name">Rebirth</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="4">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">04</div>
+        <div class="ptile-info"><div class="ptile-style">Traditional · Chest</div><div class="ptile-name">Old School Heart</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="5">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">05</div>
+        <div class="ptile-info"><div class="ptile-style">Neo-Traditional · Thigh</div><div class="ptile-name">Moth & Moon</div></div>
+      </div>
+      <div class="portfolio-tile" data-tile="6">
+        <div class="ptile-fallback">✦</div>
+        <div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1581309553233-d7d6dd03d8c7?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="ptile-corner">06</div>
+        <div class="ptile-info"><div class="ptile-style">Script · Ribcage</div><div class="ptile-name">For Those Lost</div></div>
+      </div>
+      <div class="portfolio-cta">
+        <h3>Want to start <em>yours?</em></h3>
+        <p>Bring a reference, a half-formed idea, or just a feeling. Barry builds the rest with you.</p>
+        <a href="#booking" class="btn-gold magnetic"><span class="magnetic-inner">Start the Conversation</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="about-section" id="about">
   <div class="about-inner">
     <div>
@@ -224,6 +372,63 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
     </div>
   </div>
 </div>
+
+<section class="process-section" id="process">
+  <div class="process-pin">
+    <div class="process-rail">
+      <div class="pr-dot active" data-label="Consultation"></div>
+      <div class="pr-dot" data-label="Design"></div>
+      <div class="pr-dot" data-label="Session"></div>
+      <div class="pr-dot" data-label="Aftercare"></div>
+    </div>
+    <div class="process-inner">
+      <div class="process-stage">
+        <div class="process-bignum active" data-bignum="0">01</div>
+        <div class="process-bignum" data-bignum="1">02</div>
+        <div class="process-bignum" data-bignum="2">03</div>
+        <div class="process-bignum" data-bignum="3">04</div>
+      </div>
+      <div class="process-content">
+        <div class="process-card active" data-card="0">
+          <div class="pc-eyebrow">The Process</div>
+          <h3 class="pc-title">Free<em>Consultation.</em></h3>
+          <p class="pc-desc">It starts with a real conversation. Bring references, half-ideas, or just a feeling. Barry listens first, then talks through style, placement, and what'll actually age well on your skin.</p>
+          <div class="pc-meta">
+            <div><div class="pcm-label">Duration</div><div class="pcm-val">30–60 min</div></div>
+            <div><div class="pcm-label">Cost</div><div class="pcm-val">Free</div></div>
+          </div>
+        </div>
+        <div class="process-card" data-card="1">
+          <div class="pc-eyebrow">The Process</div>
+          <h3 class="pc-title">Custom<em>Design.</em></h3>
+          <p class="pc-desc">Barry sketches your piece from scratch — never traced, never AI-generated. You'll see the drawing before the needle ever touches skin. Revisions until it's exactly what you want.</p>
+          <div class="pc-meta">
+            <div><div class="pcm-label">Turnaround</div><div class="pcm-val">3–7 days</div></div>
+            <div><div class="pcm-label">Revisions</div><div class="pcm-val">Included</div></div>
+          </div>
+        </div>
+        <div class="process-card" data-card="2">
+          <div class="pc-eyebrow">The Process</div>
+          <h3 class="pc-title">The<em>Session.</em></h3>
+          <p class="pc-desc">Private, sterile studio. Music you pick. Breaks when you need them. Barry works clean, calm, and steady — sessions run anywhere from one hour to a full day depending on the piece.</p>
+          <div class="pc-meta">
+            <div><div class="pcm-label">Length</div><div class="pcm-val">1–8 hrs</div></div>
+            <div><div class="pcm-label">Shop Min.</div><div class="pcm-val">$80</div></div>
+          </div>
+        </div>
+        <div class="process-card" data-card="3">
+          <div class="pc-eyebrow">The Process</div>
+          <h3 class="pc-title">Healing &<em>Aftercare.</em></h3>
+          <p class="pc-desc">Written aftercare goes home with you. Text Barry anytime in the first two weeks if anything looks off. Touch-ups within 60 days are on the house — we stand behind every piece that leaves the chair.</p>
+          <div class="pc-meta">
+            <div><div class="pcm-label">Heal Time</div><div class="pcm-val">2–4 weeks</div></div>
+            <div><div class="pcm-label">Touch-ups</div><div class="pcm-val">Free · 60 days</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="reviews-section" id="reviews">
   <div class="rev-inner">
@@ -333,20 +538,42 @@ nav.scrolled{background:rgba(4,4,4,0.99);border-bottom-color:rgba(201,168,76,0.5
   <div class="fl">Barry The Needle</div>
   <div class="fc">© 2026 Barrytheneedle Studio · 2048 Campus Dr, St. Charles, MO 63301</div>
 </footer>
-<div class="cur" id="cur"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="17" y="3" width="9" height="5" rx="2.5" fill="#111" stroke="#C9A84C" stroke-width="0.8" transform="rotate(45 21.5 5.5)"/><line x1="8" y1="20" x2="19" y2="9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/><polygon points="3,25 8,20 7,18 2,24" fill="#C9A84C"/><polygon points="3,22.5 5.5,25 3,27.5 0.5,25" fill="#E8C87A"/></svg></div><div class="cur-ring" id="curR"></div>
-<script>
-const C=document.getElementById("cur"),R=document.getElementById("curR");
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+"px";C.style.top=my+"px"});
-(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;R.style.left=rx+"px";R.style.top=ry+"px";requestAnimationFrame(loop)})();
-document.querySelectorAll("a,button,.svc,.rev,.ib").forEach(el=>{el.addEventListener("mouseenter",()=>{R.style.transform="translate(-50%,-50%) scale(2.5)";R.style.opacity="0.7";C.style.filter="drop-shadow(0 0 8px rgba(201,168,76,.9))"});el.addEventListener("mouseleave",()=>{R.style.transform="translate(-50%,-50%) scale(1)";R.style.opacity="0.45";C.style.filter="drop-shadow(0 0 5px rgba(201,168,76,.55))"})});
-</script>
+<!-- (custom cursor removed — using native cursor) -->
 <div class="modal-overlay" id="bookModal"><div class="modal-box"><button class="modal-close" onclick="closeModal()">&times;</button><h3>Barrytheneedle Studio</h3><p>Ready to book? Give us a call or find us on the map.</p><a href="tel:6363957041" class="modal-phone">(636) 395-7041</a><div class="modal-addr">2048 Campus Dr, St. Charles, MO 63301</div><div class="modal-btns"><a href="tel:6363957041" class="modal-btn-call">Call Now</a><a href="https://maps.google.com/?q=2048+Campus+Dr+St+Charles+MO" target="_blank" class="modal-btn-map">Get Directions</a></div></div></div><script>function openBookModal(){document.getElementById('bookModal').classList.add('active')}function closeModal(){document.getElementById('bookModal').classList.remove('active')}document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeModal()});</script>
 
 <!-- CDN Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+<!-- Lenis smooth scroll + GSAP sync -->
+<script>
+(function(){
+  if(!window.Lenis||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  // lerp=responsive interpolation (snappier than duration-based smoothing)
+  var lenis=new Lenis({lerp:0.1,smoothWheel:true,smoothTouch:false,wheelMultiplier:1});
+  window.__lenis=lenis;
+  if(window.gsap&&window.ScrollTrigger){
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(time){lenis.raf(time*1000)});
+    gsap.ticker.lagSmoothing(0);
+  }else{
+    function raf(time){lenis.raf(time);requestAnimationFrame(raf)}
+    requestAnimationFrame(raf);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href');
+      if(id.length<2)return;
+      var t=document.querySelector(id);
+      if(!t)return;
+      e.preventDefault();
+      lenis.scrollTo(t,{offset:-60,duration:1.0});
+    });
+  });
+})();
+</script>
 
 <!-- Nav scroll enhancement -->
 <script>
@@ -387,38 +614,263 @@ gsap.from('.cta-section h2',{y:28,opacity:0,duration:0.8,ease:'power3.out',scrol
 gsap.from('#booking .form-group',{y:20,opacity:0,duration:0.5,stagger:0.07,ease:'power2.out',scrollTrigger:{trigger:'.booking-section',start:'top 80%',once:true}});
 </script>
 
-<!-- Cursor particle trail -->
+<!-- Scroll progress bar -->
 <script>
 (function(){
-  var POOL=20,pool=[],idx=0,lastX=-999,lastY=-999,MIN=14;
-  for(var i=0;i<POOL;i++){var d=document.createElement('div');d.className='trail-dot';d.style.opacity='0';document.body.appendChild(d);pool.push(d);}
-  document.addEventListener('mousemove',function(e){
-    var dx=e.clientX-lastX,dy=e.clientY-lastY;
-    if(Math.sqrt(dx*dx+dy*dy)<MIN)return;
-    lastX=e.clientX;lastY=e.clientY;
-    var dot=pool[idx%POOL];idx++;
-    dot.classList.remove('fading');
-    dot.style.left=e.clientX+'px';
-    dot.style.top=e.clientY+'px';
-    var sz=(3+Math.random()*4)+'px';
-    dot.style.width=sz;dot.style.height=sz;
-    dot.style.opacity='0.65';
-    requestAnimationFrame(function(){dot.classList.add('fading');});
+  var bar=document.getElementById('scrollBar');
+  if(!bar)return;
+  function upd(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    var pct=max>0?(window.scrollY/max)*100:0;
+    bar.style.width=pct+'%';
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd,{passive:true});
+  upd();
+})();
+</script>
+
+<!-- Portfolio horizontal pinned scroll -->
+<script>
+(function(){
+  if(window.innerWidth<=900)return;
+  var track=document.getElementById('portfolioTrack');
+  var section=document.querySelector('.portfolio-section');
+  if(!track||!section||!window.gsap||!window.ScrollTrigger)return;
+  function calc(){return track.scrollWidth-window.innerWidth+48}
+  function sizeSection(){section.style.height=(calc()+window.innerHeight)+'px'}
+  sizeSection();
+  window.addEventListener('resize',sizeSection,{passive:true});
+  var distance=calc();
+  var tween=gsap.to(track,{
+    x:function(){return -calc()},
+    ease:'none',
+    scrollTrigger:{
+      trigger:section,
+      start:'top top',
+      end:function(){return '+='+calc()},
+      scrub:0.4,
+      pin:'.portfolio-pin',
+      anticipatePin:1,
+      fastScrollEnd:true,
+      invalidateOnRefresh:true
+    }
+  });
+  // Tile counter
+  var counter=document.getElementById('ptileCount');
+  var tiles=document.querySelectorAll('.portfolio-tile');
+  if(counter&&tiles.length){
+    ScrollTrigger.create({
+      trigger:section,
+      start:'top top',
+      end:function(){return '+='+calc()},
+      onUpdate:function(self){
+        var idx=Math.min(tiles.length,Math.max(1,Math.ceil(self.progress*tiles.length)));
+        counter.textContent=(idx<10?'0':'')+idx;
+      }
+    });
+  }
+  // Recalc on resize
+  window.addEventListener('resize',function(){ScrollTrigger.refresh()},{passive:true});
+  // Hide fallback if image loads
+  document.querySelectorAll('.ptile-bg').forEach(function(bg){
+    var url=(bg.style.backgroundImage||'').replace(/^url\(["']?/,'').replace(/["']?\)$/,'');
+    if(!url)return;
+    var img=new Image();
+    img.onload=function(){bg.style.opacity='1'};
+    img.onerror=function(){
+      bg.style.display='none';
+      var fb=bg.parentNode.querySelector('.ptile-fallback');
+      if(fb)fb.style.display='flex';
+    };
+    img.src=url;
   });
 })();
 </script>
 
-<!-- Click ink splash -->
+<!-- Process sticky step swap -->
 <script>
-document.addEventListener('click',function(e){
-  var s=document.createElement('div');
-  s.className='ink-splash';
-  s.style.left=e.clientX+'px';
-  s.style.top=e.clientY+'px';
-  document.body.appendChild(s);
-  s.addEventListener('animationend',function(){s.parentNode&&s.parentNode.removeChild(s);},{once:true});
-});
+(function(){
+  if(!window.gsap||!window.ScrollTrigger)return;
+  var section=document.querySelector('.process-section');
+  if(!section)return;
+  var cards=document.querySelectorAll('.process-card');
+  var nums=document.querySelectorAll('.process-bignum');
+  var dots=document.querySelectorAll('.pr-dot');
+  var total=cards.length;
+  if(!total)return;
+  if(window.innerWidth<=900){cards.forEach(function(c){c.classList.add('active')});return}
+  function setActive(idx){
+    cards.forEach(function(c,i){
+      c.classList.remove('active','exit');
+      if(i===idx)c.classList.add('active');
+      else if(i<idx)c.classList.add('exit');
+    });
+    nums.forEach(function(n,i){
+      n.classList.remove('active','exit');
+      if(i===idx)n.classList.add('active');
+      else if(i<idx)n.classList.add('exit');
+    });
+    dots.forEach(function(d,i){
+      d.classList.toggle('active',i<=idx);
+    });
+  }
+  ScrollTrigger.create({
+    trigger:section,
+    start:'top top',
+    end:'bottom bottom',
+    pin:'.process-pin',
+    anticipatePin:1,
+    onUpdate:function(self){
+      var idx=Math.min(total-1,Math.floor(self.progress*total));
+      setActive(idx);
+    }
+  });
+})();
 </script>
+
+<!-- Character split text reveal -->
+<script>
+(function(){
+  if(!window.gsap||!window.ScrollTrigger)return;
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    if(el.dataset.splitDone)return;
+    el.dataset.splitDone='1';
+    var html=el.innerHTML;
+    // Replace each text node's chars with spans, preserving inline tags like <em>
+    function processNode(node){
+      if(node.nodeType===3){
+        var frag=document.createDocumentFragment();
+        var words=node.textContent.split(/(\s+)/);
+        words.forEach(function(word){
+          if(/^\s+$/.test(word)){frag.appendChild(document.createTextNode(word));return}
+          var w=document.createElement('span');
+          w.className='split-word';
+          for(var i=0;i<word.length;i++){
+            var s=document.createElement('span');
+            s.className='split-char';
+            s.textContent=word[i];
+            w.appendChild(s);
+          }
+          frag.appendChild(w);
+        });
+        node.parentNode.replaceChild(frag,node);
+      }else if(node.nodeType===1){
+        Array.from(node.childNodes).forEach(processNode);
+      }
+    }
+    Array.from(el.childNodes).forEach(processNode);
+    var chars=el.querySelectorAll('.split-char');
+    ScrollTrigger.create({
+      trigger:el,
+      start:'top 85%',
+      once:true,
+      onEnter:function(){
+        chars.forEach(function(c,i){
+          setTimeout(function(){c.classList.add('in')},i*18);
+        });
+      }
+    });
+  });
+})();
+</script>
+
+<!-- Magnetic buttons -->
+<script>
+(function(){
+  if(window.matchMedia('(pointer:coarse)').matches)return;
+  function bind(el,STR,STR_INNER){
+    var inner=el.querySelector('.magnetic-inner');
+    if(!inner){
+      var span=document.createElement('span');span.className='magnetic-inner';
+      while(el.firstChild)span.appendChild(el.firstChild);
+      el.appendChild(span);
+      inner=span;
+    }
+    var rafId=0,tx=0,ty=0;
+    function apply(){
+      rafId=0;
+      el.style.transform='translate('+(tx*STR)+'px,'+(ty*STR)+'px)';
+      inner.style.transform='translate('+(tx*STR_INNER)+'px,'+(ty*STR_INNER)+'px)';
+    }
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      tx=e.clientX-r.left-r.width/2;
+      ty=e.clientY-r.top-r.height/2;
+      if(!rafId)rafId=requestAnimationFrame(apply);
+    });
+    el.addEventListener('mouseleave',function(){
+      if(rafId){cancelAnimationFrame(rafId);rafId=0}
+      el.style.transform='';
+      inner.style.transform='';
+    });
+  }
+  document.querySelectorAll('.magnetic').forEach(function(el){bind(el,.35,.55)});
+  document.querySelectorAll('.btn-gold:not(.magnetic),.cta-phone').forEach(function(b){
+    b.classList.add('magnetic');bind(b,.3,.5);
+  });
+})();
+</script>
+
+<!-- Apply data-split to existing section titles -->
+<script>
+(function(){
+  document.querySelectorAll('.title').forEach(function(t){
+    if(!t.hasAttribute('data-split'))t.setAttribute('data-split','');
+  });
+  // Re-run split on newly tagged nodes
+  if(window.ScrollTrigger){
+    document.querySelectorAll('[data-split]:not([data-split-done])').forEach(function(el){
+      el.setAttribute('data-split-done','1');
+      var processNode=function(node){
+        if(node.nodeType===3){
+          var frag=document.createDocumentFragment();
+          var words=node.textContent.split(/(\s+)/);
+          words.forEach(function(word){
+            if(/^\s+$/.test(word)){frag.appendChild(document.createTextNode(word));return}
+            var w=document.createElement('span');w.className='split-word';
+            for(var i=0;i<word.length;i++){
+              var s=document.createElement('span');s.className='split-char';s.textContent=word[i];w.appendChild(s);
+            }
+            frag.appendChild(w);
+          });
+          node.parentNode.replaceChild(frag,node);
+        }else if(node.nodeType===1){
+          Array.from(node.childNodes).forEach(processNode);
+        }
+      };
+      Array.from(el.childNodes).forEach(processNode);
+      var chars=el.querySelectorAll('.split-char');
+      ScrollTrigger.create({
+        trigger:el,start:'top 88%',once:true,
+        onEnter:function(){chars.forEach(function(c,i){setTimeout(function(){c.classList.add('in')},i*15)})}
+      });
+    });
+    ScrollTrigger.refresh();
+  }
+})();
+</script>
+
+<!-- Service card scroll-driven 3D depth -->
+<script>
+(function(){
+  if(!window.gsap||!window.ScrollTrigger||window.innerWidth<=900)return;
+  gsap.utils.toArray('.svc').forEach(function(card,i){
+    gsap.fromTo(card,{rotateY:-8,rotateX:4,z:-40,opacity:0},{
+      rotateY:0,rotateX:0,z:0,opacity:1,duration:1.0,ease:'power3.out',
+      scrollTrigger:{trigger:card,start:'top 90%',once:true}
+    });
+  });
+  // Section parallax for hero bg text
+  document.querySelectorAll('[data-parallax]').forEach(function(el){
+    var amt=parseFloat(el.dataset.parallax)||.3;
+    gsap.to(el,{yPercent:-amt*100,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+})();
+</script>
+
+<!-- (cursor trail + click splash removed) -->
 
 <!-- 3D card tilt -->
 <script>
@@ -491,61 +943,110 @@ document.querySelectorAll('.svc').forEach(function(card){
 })();
 </script>
 
-<!-- Three.js hero particle field -->
+<!-- Three.js hero scene: wireframe centerpiece + particle field -->
 <script>
 (function(){
   if(!window.THREE||window.innerWidth<=900)return;
   var canvas=document.getElementById('heroCanvas');
   if(!canvas)return;
   var W=canvas.offsetWidth,H=canvas.offsetHeight;
-  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:false});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
   renderer.setSize(W,H);
   var scene=new THREE.Scene();
-  var camera=new THREE.PerspectiveCamera(60,W/H,0.1,1000);
+  var camera=new THREE.PerspectiveCamera(55,W/H,0.1,1000);
   camera.position.z=80;
-  var COUNT=220;
+
+  // Pause render when hero is offscreen (saves GPU on the rest of the page)
+  var heroVisible=true;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      heroVisible=entries[0].isIntersecting;
+    },{threshold:0.01}).observe(canvas);
+  }
+
+  // Particle field
+  var COUNT=180;
   var pos=new Float32Array(COUNT*3);
   var vel=[];
   for(var i=0;i<COUNT;i++){
     pos[i*3]=(Math.random()-.5)*180;
     pos[i*3+1]=(Math.random()-.5)*110;
     pos[i*3+2]=(Math.random()-.5)*60;
-    vel.push({x:(Math.random()-.5)*.045,y:.014+Math.random()*.028,z:(Math.random()-.5)*.02});
+    vel.push({x:(Math.random()-.5)*.045,y:.012+Math.random()*.026,z:(Math.random()-.5)*.02});
   }
-  var geo=new THREE.BufferGeometry();
-  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  var mat=new THREE.PointsMaterial({color:0xC9A84C,size:1.6,transparent:true,opacity:0.55,sizeAttenuation:true});
-  var pts=new THREE.Points(geo,mat);
-  scene.add(pts);
+  var pgeo=new THREE.BufferGeometry();
+  pgeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  var pmat=new THREE.PointsMaterial({color:0xC9A84C,size:1.5,transparent:true,opacity:0.55,sizeAttenuation:true});
+  scene.add(new THREE.Points(pgeo,pmat));
+
+  // Centerpiece: torus knot wireframe (mesh3d.gallery vibe)
+  var knotGeo=new THREE.TorusKnotGeometry(14,3.2,140,18,2,3);
+  var knotMat=new THREE.MeshBasicMaterial({color:0xC9A84C,wireframe:true,transparent:true,opacity:0.55});
+  var knot=new THREE.Mesh(knotGeo,knotMat);
+  knot.position.set(0,0,0);
+  scene.add(knot);
+
+  // Inner icosahedron — a second 3D shape for layered depth
+  var icoGeo=new THREE.IcosahedronGeometry(6,1);
+  var icoMat=new THREE.MeshBasicMaterial({color:0xE8C87A,wireframe:true,transparent:true,opacity:0.35});
+  var ico=new THREE.Mesh(icoGeo,icoMat);
+  scene.add(ico);
+
+  // Outer ring — sphere as wireframe halo
+  var sphGeo=new THREE.SphereGeometry(24,16,12);
+  var sphMat=new THREE.MeshBasicMaterial({color:0xC9A84C,wireframe:true,transparent:true,opacity:0.08});
+  var sph=new THREE.Mesh(sphGeo,sphMat);
+  scene.add(sph);
+
   var tCamX=0,tCamY=0,cCamX=0,cCamY=0;
+  var tRotX=0,tRotY=0,cRotX=0,cRotY=0;
+  var scrollY=0;
   document.addEventListener('mousemove',function(e){
     var hero=document.querySelector('.hero');
+    if(!hero)return;
     var rect=hero.getBoundingClientRect();
     if(e.clientY>rect.bottom)return;
-    tCamX=((e.clientX/window.innerWidth)-.5)*9;
-    tCamY=-((e.clientY/window.innerHeight)-.5)*6;
+    var nx=(e.clientX/window.innerWidth)-.5;
+    var ny=(e.clientY/window.innerHeight)-.5;
+    tCamX=nx*9;tCamY=-ny*6;
+    tRotX=ny*.6;tRotY=nx*.8;
   });
+  window.addEventListener('scroll',function(){scrollY=window.scrollY||0},{passive:true});
   window.addEventListener('resize',function(){
     if(window.innerWidth<=900)return;
     W=canvas.offsetWidth;H=canvas.offsetHeight;
     renderer.setSize(W,H);
-    camera.aspect=W/H;
-    camera.updateProjectionMatrix();
+    camera.aspect=W/H;camera.updateProjectionMatrix();
   },{passive:true});
-  (function animate(){
+
+  (function animate(t){
     requestAnimationFrame(animate);
-    var p=geo.attributes.position.array;
+    if(!heroVisible)return;  // skip work when hero is offscreen
+    var p=pgeo.attributes.position.array;
     for(var i=0;i<COUNT;i++){
       p[i*3]+=vel[i].x;p[i*3+1]+=vel[i].y;p[i*3+2]+=vel[i].z;
       if(p[i*3+1]>58)p[i*3+1]=-58;
       if(p[i*3]>92)p[i*3]=-92;
       if(p[i*3]<-92)p[i*3]=92;
     }
-    geo.attributes.position.needsUpdate=true;
+    pgeo.attributes.position.needsUpdate=true;
+
+    var s=scrollY*0.0018;
+    cRotX+=(tRotX-cRotX)*.06;
+    cRotY+=(tRotY-cRotY)*.06;
+    knot.rotation.x=cRotX*.5+s*1.2+(t||0)*0.00018;
+    knot.rotation.y=cRotY*.5+s*1.4+(t||0)*0.00022;
+    ico.rotation.x=-cRotX*.8-s*2.2-(t||0)*0.0003;
+    ico.rotation.y=-cRotY*.8-s*1.8-(t||0)*0.00025;
+    sph.rotation.y=s*.6+(t||0)*0.00006;
+
     cCamX+=(tCamX-cCamX)*.05;
     cCamY+=(tCamY-cCamY)*.05;
-    camera.position.x=cCamX;camera.position.y=cCamY;
+    camera.position.x=cCamX;
+    camera.position.y=cCamY-s*8;
+    camera.position.z=80+Math.min(s*30,60);
+    camera.lookAt(0,0,0);
     renderer.render(scene,camera);
   })();
 })();

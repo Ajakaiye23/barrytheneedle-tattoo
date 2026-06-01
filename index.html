@@ -597,17 +597,41 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   var rim=new THREE.DirectionalLight(0xC9A84C,0.7);
   rim.position.set(-8,3,-10);
   scene.add(rim);
+  if('outputColorSpace' in renderer){renderer.outputColorSpace=THREE.SRGBColorSpace}else{renderer.outputEncoding=THREE.sRGBEncoding}
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;
+  (function(){
+    var c=document.createElement('canvas');c.width=32;c.height=256;var g=c.getContext('2d');
+    var gr=g.createLinearGradient(0,0,0,256);
+    gr.addColorStop(0,'#6a5a34');gr.addColorStop(0.42,'#100d07')   ;gr.addColorStop(0.48,'#caa75a');
+    gr.addColorStop(0.54,'#0a0805');gr.addColorStop(0.8,'#0c0a06');gr.addColorStop(1,'#050403');
+    g.fillStyle=gr;g.fillRect(0,0,32,256);
+    g.fillStyle='rgba(255,224,150,0.9)';g.fillRect(0,94,32,12);
+    var tex=new THREE.CanvasTexture(c);tex.mapping=THREE.EquirectangularReflectionMapping;
+    var pm=new THREE.PMREMGenerator(renderer);pm.compileEquirectangularShader();
+    scene.environment=pm.fromEquirectangular(tex).texture;tex.dispose();pm.dispose();
+  })();
 
   // PROCEDURAL DESIGN ELEMENTS — gold wireframe shapes that build up
   // Each element appears at a specific scroll progress
   var elements=[];
 
-  // Element 1: central torus knot (the focal piece)
-  var coreGeo=new THREE.TorusKnotGeometry(3,0.6,140,18,2,3);
-  var coreMat=new THREE.MeshStandardMaterial({color:0xC9A84C,roughness:0.25,metalness:0.85,wireframe:true,transparent:true,opacity:0});
-  var core=new THREE.Mesh(coreGeo,coreMat);
-  scene.add(core);
-  elements.push({mesh:core,appearAt:0.05});
+  // FOCAL PIECE: a real gold/chrome TATTOO MACHINE (Barry the Needle)
+  var goldMat=new THREE.MeshStandardMaterial({color:0xC9A84C,roughness:0.22,metalness:0.95,envMapIntensity:1.6});
+  var goldL=new THREE.MeshStandardMaterial({color:0xE8C87A,roughness:0.18,metalness:0.95,envMapIntensity:1.7});
+  var blackMat=new THREE.MeshStandardMaterial({color:0x161616,roughness:0.45,metalness:0.4,envMapIntensity:1.0});
+  var chromeMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.12,metalness:1.0,envMapIntensity:1.9});
+  var machine=new THREE.Group();
+  var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;grip.castShadow=true;machine.add(grip);
+  var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;machine.add(gring);
+  var body=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.5,2.6,40),goldMat);body.position.y=2.95;body.castShadow=true;machine.add(body);
+  var cap=new THREE.Mesh(new THREE.SphereGeometry(0.62,28,20),goldL);cap.position.y=4.35;machine.add(cap);
+  var barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.2,1.7,32),chromeMat);barrel.position.y=-1.45;machine.add(barrel);
+  var collar=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.24,0.3,32),goldMat);collar.position.y=-0.7;machine.add(collar);
+  var tip=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.004,0.8,16),goldL);tip.position.y=-2.55;machine.add(tip);
+  machine.scale.setScalar(1.25);
+  machine.rotation.z=0.32;
+  machine.position.set(0,0.5,0);
+  scene.add(machine);
 
   // Element 2-5: orbital rings around the core
   for(var i=0;i<4;i++){
@@ -706,12 +730,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
       el.mesh.scale.setScalar(0.3+op*0.7);
       el.mesh.material.needsUpdate=false;
     });
-    // Spin core
-    core.rotation.x=t*0.3;
-    core.rotation.y=t*0.4;
+    // Slowly turn the tattoo machine (keeps its diagonal tilt)
+    machine.rotation.y=t*0.4;
     // Orbital motion for icosahedrons
     elements.forEach(function(el,i){
-      if(i>=5){  // icos
+      if(i>=4){  // icos (rings occupy indices 0-3)
         var ang=(i-5)*Math.PI*2/3+t*0.4;
         el.mesh.position.x=Math.cos(ang)*8;
         el.mesh.position.z=Math.sin(ang)*5;

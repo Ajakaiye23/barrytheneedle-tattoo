@@ -616,10 +616,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   var elements=[];
 
   // FOCAL PIECE: a real gold/chrome TATTOO MACHINE (Barry the Needle)
-  var goldMat=new THREE.MeshStandardMaterial({color:0xC9A84C,roughness:0.22,metalness:0.95,envMapIntensity:1.6});
-  var goldL=new THREE.MeshStandardMaterial({color:0xE8C87A,roughness:0.18,metalness:0.95,envMapIntensity:1.7});
-  var blackMat=new THREE.MeshStandardMaterial({color:0x161616,roughness:0.45,metalness:0.4,envMapIntensity:1.0});
-  var chromeMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.12,metalness:1.0,envMapIntensity:1.9});
+  var goldMat=new THREE.MeshStandardMaterial({color:0xCC9A2E,roughness:0.16,metalness:1.0,envMapIntensity:2.1});
+  var goldL=new THREE.MeshStandardMaterial({color:0xE8C86A,roughness:0.13,metalness:1.0,envMapIntensity:2.2});
+  var blackMat=new THREE.MeshStandardMaterial({color:0x141414,roughness:0.4,metalness:0.55,envMapIntensity:1.2});
+  var chromeMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.1,metalness:1.0,envMapIntensity:2.2});
   var machine=new THREE.Group();
   var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;grip.castShadow=true;machine.add(grip);
   var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;machine.add(gring);

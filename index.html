@@ -655,10 +655,18 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     elements.push({mesh:ico,appearAt:0.38+i*0.05});
   }
 
-  // GROUND DISC — receives shadow from the design above
+  // GROUND DISC — polished black-marble floor (subtle gold veining), glossy so it reflects the piece
+  var floorTex=(function(){
+    var c=document.createElement('canvas');c.width=c.height=512;var g=c.getContext('2d');
+    g.fillStyle='#0c0b09';g.fillRect(0,0,512,512);
+    for(var i=0;i<14;i++){g.strokeStyle='rgba(201,168,76,'+(0.04+Math.random()*0.07).toFixed(3)+')';g.lineWidth=1+Math.random()*1.5;g.beginPath();var x=Math.random()*512,y=Math.random()*512;g.moveTo(x,y);for(var j=0;j<5;j++){x+=(Math.random()-0.5)*160;y+=(Math.random()-0.5)*160;g.lineTo(x,y);}g.stroke();}
+    var tex=new THREE.CanvasTexture(c);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(2,2);tex.anisotropy=4;
+    if('colorSpace' in tex){tex.colorSpace=THREE.SRGBColorSpace}else{tex.encoding=THREE.sRGBEncoding}
+    return tex;
+  })();
   var ground=new THREE.Mesh(
     new THREE.CircleGeometry(40,64),
-    new THREE.MeshStandardMaterial({color:0x111111,roughness:0.95,metalness:0.1})
+    new THREE.MeshStandardMaterial({map:floorTex,color:0xffffff,roughness:0.28,metalness:0.5,envMapIntensity:1.1})
   );
   ground.rotation.x=-Math.PI/2;
   ground.position.y=-6;

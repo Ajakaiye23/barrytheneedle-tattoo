@@ -10,7 +10,7 @@
 <meta name="keywords" content="tattoo studio St. Charles MO, custom tattoos, cover up tattoos, fine art tattoo, Barry the Needle, tattoo artist St. Charles County">
 <meta name="author" content="Barry the Needle">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#080808">
+<meta name="theme-color" content="#070605">
 <meta name="geo.region" content="US-MO">
 <meta name="geo.placename" content="St. Charles, Missouri">
 <meta name="geo.position" content="38.7931;-90.5074">
@@ -27,11 +27,6 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
-<meta property="business:contact_data:street_address" content="2048 Campus Dr">
-<meta property="business:contact_data:locality" content="St. Charles">
-<meta property="business:contact_data:region" content="MO">
-<meta property="business:contact_data:postal_code" content="63301">
-<meta property="business:contact_data:country_name" content="United States">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -52,223 +47,233 @@
   "telephone": "+1-636-395-7041",
   "image": "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=1200&h=630&q=80&auto=format&fit=crop",
   "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2048 Campus Dr",
-    "addressLocality": "St. Charles",
-    "addressRegion": "MO",
-    "postalCode": "63301",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 38.7931,
-    "longitude": -90.5074
-  },
+  "address": {"@type":"PostalAddress","streetAddress":"2048 Campus Dr","addressLocality":"St. Charles","addressRegion":"MO","postalCode":"63301","addressCountry":"US"},
+  "geo": {"@type":"GeoCoordinates","latitude":38.7931,"longitude":-90.5074},
   "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "10:00",
-      "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "10:00",
-      "closes": "18:00"
-    }
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"18:00"}
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "44",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Google Review" },
-      "reviewBody": "Barry is not only an incredibly talented tattoo artist, but he genuinely cares about his clients. We brainstormed together for over an hour. In the end I got an amazingly beautiful tattoo."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Google Review" },
-      "reviewBody": "Barry is the best Tattoo artist in St Charles County hands down. He is an amazing person and very talented. I've received tattoos from Barry in 3 different shops and his new studio is by far the best."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Google Review" },
-      "reviewBody": "I can't explain how much I love Barry and his shop. I always feel safe in his space and heard. I have been to plenty of other artists and Barry's skill and passion are hard to find."
-    }
-  ]
+  "aggregateRating": {"@type":"AggregateRating","ratingValue":"5","reviewCount":"44","bestRating":"5","worstRating":"1"}
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--black:#080808;--black2:#111;--black3:#1A1A1A;--gold:#C9A84C;--gold2:#E8C87A;--gold3:#8B7234;--white:#F5F0E8;--gray:#7A7268;--border:rgba(201,168,76,0.2)}
-body{background:var(--black);color:var(--white);font-family:'Raleway',sans-serif;overflow-x:hidden}
-.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:200;transition:width .12s linear}
+:root{--black:#070605;--ink:#0D0B08;--gold:#C9A84C;--gold2:#E8C87A;--gold3:#8B7234;--bone:#F5F0E8;--gray:#8A8174;--border:rgba(201,168,76,0.18);--glass:rgba(13,11,8,0.52)}
+html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold3)}
+::selection{background:var(--gold);color:var(--black)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body{background:var(--black);color:var(--bone);font-family:'Raleway',sans-serif;overflow-x:hidden}
+body.no-webgl{background:linear-gradient(180deg,#070605 0%,#0d0906 55%,#1c1208 100%)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s}
+/* ===== THE WORLD (persistent canvas) ===== */
+#world{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.world-vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.5) 100%)}
+main{position:relative;z-index:2}
+
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:300;transition:width .12s linear}
+
+/* ===== GRAIN ===== */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:150;pointer-events:none;opacity:.05;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="300" height="300" filter="url(%23n)" opacity="0.7"/></svg>');animation:grainShift 1.2s steps(6) infinite}
+@keyframes grainShift{0%{transform:translate(0,0)}16%{transform:translate(-2%,1%)}33%{transform:translate(1%,-2%)}50%{transform:translate(-1%,2%)}66%{transform:translate(2%,1%)}83%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+
+/* ===== PRELOADER ===== */
+.preloader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center}
+.pre-cols{position:absolute;inset:0;display:flex}
+.pre-cols span{flex:1;background:var(--black);transform-origin:top;transition:transform .75s cubic-bezier(.76,0,.24,1)}
+.pre-cols span:nth-child(2){transition-delay:.07s}
+.pre-cols span:nth-child(3){transition-delay:.14s}
+.pre-cols span:nth-child(4){transition-delay:.21s}
+.pre-cols span:nth-child(5){transition-delay:.28s}
+.preloader.done .pre-cols span{transform:scaleY(0)}
+.preloader.done{pointer-events:none}
+.pre-center{position:relative;z-index:2;text-align:center;transition:opacity .45s ease,transform .45s ease}
+.pre-word{font-family:'Cinzel',serif;font-size:clamp(1.3rem,4vw,2.4rem);letter-spacing:6px;text-transform:uppercase;color:var(--bone);display:flex;justify-content:center;overflow:hidden;padding-bottom:.2em}
+.pre-word b{font-weight:600;display:inline-block;transform:translateY(130%);opacity:0;animation:preUp .9s cubic-bezier(.22,1,.36,1) forwards}
+.pre-word b.gold{color:var(--gold)}
+@keyframes preUp{to{transform:translateY(0);opacity:1}}
+.pre-line{height:1px;background:rgba(201,168,76,.4);margin:1.4rem auto 0;width:0;animation:preLine 1.6s cubic-bezier(.22,1,.36,1) .3s forwards}
+@keyframes preLine{to{width:100%}}
+.pre-count{position:absolute;bottom:2.2rem;right:3rem;z-index:2;font-family:'Cinzel',serif;font-size:clamp(2.6rem,7vw,5rem);color:var(--gold);line-height:1;transition:opacity .45s ease,transform .45s ease;font-variant-numeric:tabular-nums}
+.preloader.done .pre-center,.preloader.done .pre-count{opacity:0;transform:translateY(-26px)}
+body.loading{overflow:hidden}
+body.preloading .hero-tag,body.preloading .hero h1,body.preloading .hero-sub,body.preloading .hero-ctas,body.preloading .hero-meta{opacity:0;transform:translateY(46px)}
+.hero-tag,.hero h1,.hero-sub,.hero-ctas,.hero-meta{transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)}
+.hero h1{transition-delay:.1s}.hero-sub{transition-delay:.22s}.hero-ctas{transition-delay:.32s}.hero-meta{transition-delay:.42s}
+
+/* ===== NAV (frosted pill) ===== */
+nav{position:fixed;top:14px;left:clamp(12px,3vw,34px);right:clamp(12px,3vw,34px);z-index:100;height:62px;padding:0 1.6rem 0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(7,6,5,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(201,168,76,.25);border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,.4);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+nav.nav-hidden{transform:translateY(calc(-100% - 20px))}
+.logo{font-family:'Cinzel',serif;font-size:1.15rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
+.nav-links{display:flex;gap:2.4rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:all .2s;text-decoration:none}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;border-radius:100px;cursor:pointer;transition:all .2s;text-decoration:none}
 .nav-cta:hover{background:var(--gold);color:var(--black)}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;position:relative;padding:0}
+.nav-burger span{position:absolute;left:9px;right:9px;height:1.5px;background:var(--gold);transition:transform .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1)}
+.nav-burger span:first-child{top:16px}
+.nav-burger span:last-child{top:25px}
+.nav-burger.open span:first-child{top:20.5px;transform:rotate(45deg)}
+.nav-burger.open span:last-child{top:20.5px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:rgba(7,6,5,.985);z-index:99;display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:0 2rem;visibility:hidden;opacity:0;transition:opacity .45s ease,visibility 0s linear .45s}
+.mobile-menu.open{visibility:visible;opacity:1;transition:opacity .45s ease}
+.mobile-menu a{font-family:'Cinzel',serif;font-size:clamp(1.8rem,8vw,2.6rem);letter-spacing:3px;text-transform:uppercase;color:var(--bone);text-decoration:none;padding:.55rem 0;border-bottom:1px solid var(--border);transform:translateY(30px);opacity:0;transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s ease}
+.mobile-menu.open a{transform:translateY(0);opacity:1}
+.mobile-menu.open a:nth-child(1){transition-delay:.08s}
+.mobile-menu.open a:nth-child(2){transition-delay:.14s}
+.mobile-menu.open a:nth-child(3){transition-delay:.2s}
+.mobile-menu.open a:nth-child(4){transition-delay:.26s}
+.mobile-menu.open a:nth-child(5){transition-delay:.32s}
+.mobile-menu a em{color:var(--gold);font-style:normal}
+.mm-phone{font-size:1.1rem!important;letter-spacing:4px!important;color:var(--gold)!important;border-bottom:none!important;margin-top:1.2rem}
 
-/* ============ SCROLLYTELLING HERO ============ */
-.story{position:relative;height:600vh;background:var(--black)}
-.story-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-#storyCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
-.story-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.65) 100%);z-index:2;pointer-events:none}
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:10001;background:var(--gold);color:var(--black);padding:.7rem 1.2rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Cinzel',serif;transition:top .25s}
+.skip-link:focus{top:1rem}
 
-.beat{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:6rem 3rem 4rem;z-index:3;pointer-events:none;opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
-.beat.in{opacity:1;transform:translateY(0);pointer-events:auto}
-.beat-inner{max-width:1100px;width:100%;margin:0 auto}
-.beat-tag{display:inline-flex;align-items:center;gap:12px;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;font-family:'Cinzel',serif}
-.beat-tag::before{content:'';width:40px;height:1px;background:var(--gold)}
-.beat-h1{font-family:'Cinzel',serif;font-size:clamp(3rem,8vw,9rem);line-height:.92;color:var(--white);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:2px;text-shadow:0 4px 24px rgba(0,0,0,.7)}
-.beat-h1 em{color:var(--gold);font-style:italic;display:block}
-.beat-sub{font-size:1rem;color:rgba(245,240,232,.85);line-height:1.9;font-weight:300;max-width:520px;margin-bottom:3rem;text-shadow:0 2px 8px rgba(0,0,0,.7)}
-.beat-stat{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap}
-.beat-stat-item{display:flex;flex-direction:column}
-.bs-num{font-family:'Cinzel',serif;font-size:2.3rem;color:var(--gold);line-height:1;text-shadow:0 4px 16px rgba(0,0,0,.5)}
-.bs-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-top:.4rem}
+/* ===== SHARED TYPE ===== */
+.wrap{max-width:1380px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+.eyebrow{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.display{font-family:'Cinzel',serif;font-size:clamp(2.8rem,7vw,6.5rem);line-height:.98;text-transform:uppercase;letter-spacing:1px;color:var(--bone)}
+.display em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold);letter-spacing:0;text-transform:none;font-weight:600}
+.chapter{position:relative;padding:16vh 0}
+.chapter-word{position:absolute;top:6vh;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;font-size:clamp(6rem,22vw,22rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.14);letter-spacing:.06em;text-transform:uppercase;pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+.chapter>.wrap{position:relative;z-index:1}
+.glass{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border)}
 
-.beat-1 .beat-inner{text-align:left}
-.beat-2 .beat-inner{text-align:right;margin-left:auto}
-.beat-3 .beat-inner{text-align:left}
-.beat-4 .beat-inner{text-align:center}
-.beat-5 .beat-inner{text-align:right;margin-left:auto}
-.beat-6 .beat-inner{text-align:center;padding-bottom:5rem}
+/* ===== HERO ===== */
+.hero{min-height:108vh;display:flex;align-items:center;position:relative;padding-top:8vh}
+.hero-inner{max-width:1380px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:12px;font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:2.4rem;font-family:'Cinzel',serif}
+.hero-tag::before{content:'';width:44px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(3.4rem,11.5vw,11.5rem);line-height:.92;color:var(--bone);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2.2rem;text-shadow:0 6px 40px rgba(0,0,0,.65)}
+.hero h1 em{display:block;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold);text-transform:none;letter-spacing:0;font-weight:600;font-size:.92em}
+.hero-sub{font-size:clamp(.95rem,1.2vw,1.1rem);color:rgba(245,240,232,.82);line-height:2;font-weight:300;max-width:540px;margin-bottom:3rem;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.hero-ctas{display:flex;gap:1.1rem;flex-wrap:wrap}
+.hero-meta{display:flex;gap:3rem;margin-top:6vh;flex-wrap:wrap}
+.hm{display:flex;flex-direction:column}
+.hm-num{font-family:'Cinzel',serif;font-size:2rem;color:var(--gold);line-height:1}
+.hm-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-top:.5rem}
+.hero-scroll{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-scroll::after{content:'';width:1px;height:48px;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-.beat-rail{position:absolute;right:2rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.4rem;z-index:5;align-items:flex-end}
-.brail-dot{display:flex;align-items:center;gap:14px;color:rgba(245,240,232,.4);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:color .3s}
-.brail-dot::after{content:'';width:8px;height:8px;background:rgba(245,240,232,.3);transition:all .3s;border-radius:50%}
-.brail-dot.active{color:var(--gold)}
-.brail-dot.active::after{background:var(--gold);transform:scale(1.5);box-shadow:0 0 16px rgba(201,168,76,.7)}
-
-/* BUTTONS */
-.btn-gold{background:var(--gold);color:var(--black);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;padding:14px 32px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+/* ===== BUTTONS ===== */
+.btn-gold{background:var(--gold);color:var(--black);font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;padding:16px 36px;border:none;border-radius:100px;cursor:pointer;transition:background .2s;text-decoration:none;display:inline-block}
 .btn-gold:hover{background:var(--gold2)}
-.btn-outline{background:transparent;color:var(--white);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;padding:13px 32px;border:1px solid rgba(245,240,232,.3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-outline{background:rgba(7,6,5,.3);backdrop-filter:blur(8px);color:var(--bone);font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;padding:15px 36px;border:1px solid rgba(245,240,232,.3);border-radius:100px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.beat-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.beat-1 .beat-btns,.beat-3 .beat-btns{justify-content:flex-start}
-.beat-2 .beat-btns,.beat-5 .beat-btns{justify-content:flex-end}
-.beat-4 .beat-btns,.beat-6 .beat-btns{justify-content:center}
 .magnetic{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
 .magnetic-inner{display:inline-block;transition:transform .3s cubic-bezier(.2,.7,.3,1);pointer-events:none}
 
-/* MARQUEE */
-.marquee{background:var(--gold);padding:.7rem 0;overflow:hidden;position:relative;z-index:4}
-.mt{display:flex;animation:scroll 20s linear infinite;white-space:nowrap}
-.mi{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--black);padding:0 2.5rem;display:flex;align-items:center;gap:2.5rem}
+/* ===== MANIFESTO ===== */
+.manifesto{min-height:88vh;display:flex;align-items:center}
+.manifesto-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:5rem;align-items:end}
+.manifesto p.lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.25rem,2vw,1.7rem);color:rgba(245,240,232,.85);line-height:1.8;max-width:560px;margin-top:2.4rem}
+.man-stats{display:flex;flex-direction:column;gap:2.2rem;border-left:1px solid var(--border);padding-left:2.6rem}
+.ms-num{font-family:'Cinzel',serif;font-size:clamp(2.6rem,4vw,4rem);color:var(--gold);line-height:1}
+.ms-label{font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-top:.5rem}
+
+/* ===== MARQUEE ===== */
+.marquee{background:var(--gold);padding:.85rem 0;overflow:hidden;position:relative;will-change:transform;margin:4vh 0}
+.mt{display:flex;animation:scroll 22s linear infinite;white-space:nowrap}
+.marquee:hover .mt{animation-play-state:paused}
+.mi{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--black);padding:0 2.5rem;display:flex;align-items:center;gap:2.5rem}
 .mi::after{content:'✦';opacity:.5;font-size:.65rem}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* SECTIONS */
-.section{padding:7rem 3rem;max-width:1300px;margin:0 auto}
-.eyebrow{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
-.title{font-family:'Cinzel',serif;font-size:clamp(2rem,4.5vw,4.5rem);line-height:1;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:2px}
-.title em{font-style:italic;color:var(--gold)}
+/* ===== WORK (editorial offset gallery) ===== */
+.work-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:1.5rem;margin-bottom:7vh}
+.work-head p{font-size:.92rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:380px}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4.5rem)}
+.wcol:nth-child(2){margin-top:14vh}
+.wtile{position:relative;overflow:hidden;margin-bottom:clamp(1.5rem,4vw,4.5rem);border:1px solid var(--border);background:#0a0908}
+.wtile-frame{height:clamp(300px,58vh,620px);overflow:hidden}
+.wtile-bg{width:100%;height:115%;background-size:cover;background-position:center;filter:grayscale(.5) brightness(.62) contrast(1.05);transition:filter .8s ease,transform 1.2s cubic-bezier(.22,1,.36,1);will-change:transform}
+.wtile:hover .wtile-bg{filter:grayscale(0) brightness(.95);transform:scale(1.05)}
+.wtile-info{position:absolute;bottom:0;left:0;right:0;padding:1.8rem 2rem;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.wtile-style{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.wtile-name{font-family:'Cinzel',serif;font-size:1.45rem;color:var(--bone);letter-spacing:2px;text-transform:uppercase;line-height:1.2}
+.wtile-num{position:absolute;top:1.2rem;right:1.4rem;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:2px;color:var(--gold);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:100px;padding:6px 14px}
+.work-cta{text-align:center;margin-top:6vh}
 
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.1);margin-top:4rem}
-.svc{background:var(--black);padding:3rem 2.5rem;transition:background .3s,transform .3s;position:relative}
-.svc:hover{background:var(--black2);transform:translateY(-3px)}
-.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.svc:hover::after{transform:scaleX(1)}
-.svc-name{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
-.svc-price{font-family:'Cinzel',serif;font-size:1.8rem;color:var(--gold);line-height:1;margin-bottom:.5rem}
-.svc-desc{font-size:.83rem;color:var(--gray);line-height:1.8;font-weight:300}
+/* ===== SERVICES (glass cards) ===== */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:6vh}
+.svc{padding:2.8rem 2.4rem;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s;position:relative;overflow:hidden}
+.svc:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.5)}
+.svc-idx{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:3px;color:var(--gold3);margin-bottom:1.6rem}
+.svc-name{font-family:'Cinzel',serif;font-size:1.12rem;letter-spacing:2px;text-transform:uppercase;color:var(--bone);margin-bottom:.9rem}
+.svc-price{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:.9rem}
+.svc-desc{font-size:.84rem;color:var(--gray);line-height:1.9;font-weight:300}
 
-/* PORTFOLIO: HORIZONTAL PINNED (preserve existing pattern) */
-.portfolio-section{position:relative;background:var(--black);min-height:100vh}
-.portfolio-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
-.portfolio-track{display:flex;align-items:center;gap:2rem;padding:0 6vw;will-change:transform;height:100%}
-.portfolio-intro{flex-shrink:0;width:46vw;max-width:620px;display:flex;flex-direction:column;justify-content:center;padding-right:3rem}
-.portfolio-intro p{font-size:.92rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:420px}
-.portfolio-counter{margin-top:2.5rem;display:flex;align-items:baseline;gap:1rem;font-family:'Cinzel',serif;letter-spacing:3px;color:var(--gold);font-size:.7rem;text-transform:uppercase}
-.portfolio-counter span{font-size:2rem;color:var(--white)}
-.portfolio-tile{flex-shrink:0;width:38vw;max-width:520px;height:78vh;max-height:680px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);border:1px solid var(--border);transition:border-color .5s}
-.portfolio-tile:hover{border-color:rgba(201,168,76,.55)}
-.ptile-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s cubic-bezier(.22,1,.36,1),filter .8s ease;filter:grayscale(.45) brightness(.65) contrast(1.05);will-change:transform}
-.portfolio-tile:hover .ptile-bg{transform:scale(1.08);filter:grayscale(0) brightness(.95)}
-.ptile-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;color:rgba(201,168,76,.25);font-size:8rem;letter-spacing:4px;background:linear-gradient(135deg,#161616,#0a0a0a)}
-.ptile-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.92));z-index:3;transform:translateY(20%);opacity:.7;transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .5s}
-.portfolio-tile:hover .ptile-info{transform:translateY(0);opacity:1}
-.ptile-style{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
-.ptile-name{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--white);letter-spacing:2px;text-transform:uppercase;line-height:1.2}
-.ptile-corner{position:absolute;top:1.2rem;right:1.2rem;width:36px;height:36px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Cinzel',serif;font-size:.65rem;z-index:3;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}
-.portfolio-cta{flex-shrink:0;width:34vw;max-width:440px;display:flex;flex-direction:column;justify-content:center;padding:0 2rem}
-.portfolio-cta h3{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--white);text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem;line-height:1.05}
-.portfolio-cta h3 em{color:var(--gold);font-style:italic}
-.portfolio-cta p{font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;margin-bottom:2rem}
+/* ===== REVIEWS (oversized voices) ===== */
+.voice{max-width:980px;margin:0 auto 11vh;position:relative;padding-left:clamp(2rem,6vw,5rem)}
+.voice:last-child{margin-bottom:0}
+.voice::before{content:'“';position:absolute;left:0;top:-1.4rem;font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,8vw,7rem);color:var(--gold);opacity:.55;line-height:1}
+.voice p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.65;color:rgba(245,240,232,.88)}
+.voice cite{display:block;margin-top:1.6rem;font-family:'Cinzel',serif;font-style:normal;font-size:.66rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.voice cite::before{content:'— '}
+.voice:nth-child(odd){margin-left:auto;margin-right:0}
 
-/* ABOUT */
-.about-section{background:var(--black2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:7rem 3rem}
-.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.about-visual{text-align:center}
-.about-big{font-family:'Cinzel',serif;font-size:8rem;color:transparent;-webkit-text-stroke:1px var(--gold);letter-spacing:-3px;line-height:1}
-.about-big-sub{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);margin-top:.5rem}
-.about-list{display:flex;flex-direction:column;gap:.8rem;margin-top:2.5rem}
-.al{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--gray);border-bottom:1px solid var(--border);padding-bottom:.8rem}
-.al::before{content:'✦';color:var(--gold);font-size:.6rem;flex-shrink:0}
+/* ===== VISIT ===== */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:6vh}
+.visit-card{padding:3rem}
+.visit-card h3{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.vrow{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.vrow:last-child{border-bottom:none}
+.vrow .k{letter-spacing:2px;text-transform:uppercase;font-size:.7rem;color:var(--gray);padding-top:.25rem}
+.vrow .v{font-family:'Cinzel',serif;color:var(--bone);text-align:right;line-height:1.7}
+.vrow .v a{color:var(--gold);text-decoration:none}
 
-/* REVIEWS */
-.reviews-section{padding:7rem 3rem}
-.rev-inner{max-width:1200px;margin:0 auto}
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
-.rev{background:var(--black2);border:1px solid var(--border);padding:2.5rem;transition:border-color .3s,transform .3s}
-.rev:hover{border-color:rgba(201,168,76,.5);transform:translateY(-3px)}
-.rev-stars{color:var(--gold);letter-spacing:2px;margin-bottom:1rem;font-size:.85rem}
-.rev-text{font-size:.86rem;color:rgba(245,240,232,.6);line-height:1.9;font-style:italic;margin-bottom:1.5rem;font-weight:300}
-.rev-author{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-
-/* INFO + BOOKING */
-.info-section{background:var(--black2);border-top:1px solid var(--border);padding:7rem 3rem}
-.info-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem}
-.info-block{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
-.ib{display:flex;gap:1.5rem;align-items:flex-start;padding:1.5rem;border:1px solid var(--border);transition:border-color .2s}
-.ib:hover{border-color:rgba(201,168,76,.5)}
-.ib-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
-.ib-val{font-size:.9rem;color:var(--white);line-height:1.6}
-.hours-list{margin-top:2.5rem}
-.hr{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid var(--border)}
-.hr-day{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
-.hr-time{font-family:'Cinzel',serif;font-size:.85rem;color:var(--white)}
-
-.booking-section{background:var(--black3);border-top:1px solid var(--border);padding:7rem 3rem}
-.booking-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{display:flex;flex-direction:column;margin-bottom:1.1rem}
-.form-group label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
-.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--white);font-family:'Raleway',sans-serif;font-size:.88rem;padding:.85rem 1rem;outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+/* ===== BOOKING ===== */
+.book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,5rem);align-items:start;margin-top:6vh}
+.book-side p{font-size:.94rem;color:var(--gray);line-height:2;font-weight:300;max-width:400px;margin-bottom:2rem}
+.book-side a{color:var(--gold);text-decoration:none}
+.book-form{padding:clamp(1.8rem,3vw,3rem)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form-group{display:flex;flex-direction:column;margin-bottom:1.2rem}
+.form-group label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.045);border:1px solid var(--border);color:var(--bone);font-family:'Raleway',sans-serif;font-size:.9rem;padding:.95rem 1.1rem;outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray);opacity:.7}
-.form-group select option{background:var(--black2);color:var(--white)}
+.form-group select option{background:var(--ink);color:var(--bone)}
+.form-error{color:#D9776B;font-size:.8rem;margin-top:.9rem;display:none;line-height:1.7}
+.form-error a{color:var(--gold);text-decoration:none}
+.form-status{display:none;border:1px solid var(--gold);padding:2.5rem;text-align:center}
+.form-status.show{display:block;animation:popIn .4s ease}
+.form-status h4{font-family:'Cinzel',serif;color:var(--gold);font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.8rem}
+.form-status p{font-size:.85rem;color:var(--gray);line-height:1.8}
 
-.cta-section{background:var(--black3);border-top:1px solid var(--border);padding:8rem 3rem;text-align:center}
-.cta-section h2{font-family:'Cinzel',serif;font-size:clamp(2.5rem,6vw,6rem);color:var(--white);line-height:.95;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem}
-.cta-section h2 em{color:var(--gold);font-style:italic;display:block}
-.cta-section p{font-size:.9rem;color:var(--gray);max-width:400px;margin:0 auto 3rem;line-height:1.9;font-weight:300}
-.cta-phone{font-family:'Cinzel',serif;font-size:2.5rem;color:var(--gold);display:block;margin-bottom:2rem;text-decoration:none;letter-spacing:2px}
+/* ===== FINALE ===== */
+.finale{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.finale h2{font-family:'Cinzel',serif;font-size:clamp(3rem,10vw,10rem);line-height:.95;color:var(--bone);text-transform:uppercase;letter-spacing:1px;text-shadow:0 8px 50px rgba(0,0,0,.6)}
+.finale h2 em{display:block;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold);text-transform:none;font-weight:600}
+.finale-phone{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3.2rem);color:var(--gold);display:block;margin:3rem 0 2.4rem;text-decoration:none;letter-spacing:2px}
+.finale p{font-size:.9rem;color:rgba(245,240,232,.7);max-width:420px;margin:1.6rem auto 0;line-height:2;font-weight:300}
 
-footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.fl{font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;letter-spacing:3px;text-transform:uppercase}
-.fc{font-size:.68rem;letter-spacing:1px;color:var(--gray)}
+/* ===== FOOTER ===== */
+.footer-grand{background:rgba(7,6,5,.88);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:5.5rem 3rem 2rem;overflow:hidden;position:relative;z-index:2}
+.fg-inner{max-width:1380px;margin:0 auto}
+.fg-word{font-family:'Cinzel',serif;font-size:clamp(4rem,14vw,12.5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.32);letter-spacing:.04em;text-transform:uppercase;user-select:none;margin-bottom:4rem;white-space:nowrap;transition:color .6s ease}
+.fg-word:hover{color:rgba(201,168,76,.22)}
+.fg-cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border)}
+.fg-tag{font-size:.88rem;color:var(--gray);line-height:1.9;max-width:300px;font-weight:300}
+.fg-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:1.3rem}
+.fg-col a,.fg-item{display:block;font-size:.85rem;color:var(--gray);text-decoration:none;margin-bottom:.7rem;transition:color .2s;line-height:1.6}
+.fg-col a{width:fit-content}
+.fg-col a:hover{color:var(--gold)}
+.fg-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:2rem;font-size:.68rem;letter-spacing:1px;color:var(--gray)}
+.fg-bottom a{color:var(--gold);text-decoration:none}
+.fg-bottom #fgTime{letter-spacing:2px;text-transform:uppercase;font-size:.65rem}
 
-/* MODAL */
+/* ===== MODAL ===== */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center}
 .modal-overlay.active{display:flex}
 .modal-box{background:#fff;max-width:400px;width:90%;padding:2.5rem;text-align:center;position:relative;animation:popIn .25s ease}
@@ -282,131 +287,36 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}
 @keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 
-/* ===== PRELOADER ===== */
-.preloader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center}
-.pre-cols{position:absolute;inset:0;display:flex}
-.pre-cols span{flex:1;background:var(--black);transform-origin:top;transition:transform .75s cubic-bezier(.76,0,.24,1)}
-.pre-cols span:nth-child(2){transition-delay:.07s}
-.pre-cols span:nth-child(3){transition-delay:.14s}
-.pre-cols span:nth-child(4){transition-delay:.21s}
-.pre-cols span:nth-child(5){transition-delay:.28s}
-.preloader.done .pre-cols span{transform:scaleY(0)}
-.preloader.done{pointer-events:none}
-.pre-center{position:relative;z-index:2;text-align:center;transition:opacity .45s ease,transform .45s ease}
-.pre-word{font-family:'Cinzel',serif;font-size:clamp(1.3rem,4vw,2.4rem);letter-spacing:6px;text-transform:uppercase;color:var(--white);display:flex;justify-content:center;overflow:hidden;padding-bottom:.2em}
-.pre-word b{font-weight:600;display:inline-block;transform:translateY(130%);opacity:0;animation:preUp .9s cubic-bezier(.22,1,.36,1) forwards}
-.pre-word b.gold{color:var(--gold)}
-@keyframes preUp{to{transform:translateY(0);opacity:1}}
-.pre-line{height:1px;background:rgba(201,168,76,.4);margin:1.4rem auto 0;width:0;animation:preLine 1.6s cubic-bezier(.22,1,.36,1) .3s forwards}
-@keyframes preLine{to{width:100%}}
-.pre-count{position:absolute;bottom:2.2rem;right:3rem;z-index:2;font-family:'Cinzel',serif;font-size:clamp(2.6rem,7vw,5rem);color:var(--gold);line-height:1;transition:opacity .45s ease,transform .45s ease;font-variant-numeric:tabular-nums}
-.preloader.done .pre-center,.preloader.done .pre-count{opacity:0;transform:translateY(-26px)}
-body.loading{overflow:hidden}
-body.preloading .beat-1 .beat-tag,body.preloading .beat-1 .beat-h1,body.preloading .beat-1 .beat-sub,body.preloading .beat-1 .beat-btns{opacity:0;transform:translateY(44px)}
-.beat-1 .beat-tag,.beat-1 .beat-h1,.beat-1 .beat-sub,.beat-1 .beat-btns{transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)}
-.beat-1 .beat-h1{transition-delay:.1s}.beat-1 .beat-sub{transition-delay:.2s}.beat-1 .beat-btns{transition-delay:.3s}
-
-/* ===== FILM GRAIN ===== */
-.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:150;pointer-events:none;opacity:.05;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="300" height="300" filter="url(%23n)" opacity="0.7"/></svg>');animation:grainShift 1.2s steps(6) infinite}
-@keyframes grainShift{0%{transform:translate(0,0)}16%{transform:translate(-2%,1%)}33%{transform:translate(1%,-2%)}50%{transform:translate(-1%,2%)}66%{transform:translate(2%,1%)}83%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
-
-/* ===== MOBILE MENU ===== */
-.nav-burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;position:relative;padding:0}
-.nav-burger span{position:absolute;left:9px;right:9px;height:1.5px;background:var(--gold);transition:transform .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1)}
-.nav-burger span:first-child{top:16px}
-.nav-burger span:last-child{top:25px}
-.nav-burger.open span:first-child{top:20.5px;transform:rotate(45deg)}
-.nav-burger.open span:last-child{top:20.5px;transform:rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;background:rgba(8,8,8,.985);z-index:99;display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:0 2rem;visibility:hidden;opacity:0;transition:opacity .45s ease,visibility 0s linear .45s}
-.mobile-menu.open{visibility:visible;opacity:1;transition:opacity .45s ease}
-.mobile-menu a{font-family:'Cinzel',serif;font-size:clamp(1.8rem,8vw,2.6rem);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:.55rem 0;border-bottom:1px solid var(--border);transform:translateY(30px);opacity:0;transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s ease}
-.mobile-menu.open a{transform:translateY(0);opacity:1}
-.mobile-menu.open a:nth-child(1){transition-delay:.08s}
-.mobile-menu.open a:nth-child(2){transition-delay:.14s}
-.mobile-menu.open a:nth-child(3){transition-delay:.2s}
-.mobile-menu.open a:nth-child(4){transition-delay:.26s}
-.mobile-menu.open a:nth-child(5){transition-delay:.32s}
-.mobile-menu a em{color:var(--gold);font-style:normal}
-.mm-phone{font-size:1.1rem!important;letter-spacing:4px!important;color:var(--gold)!important;border-bottom:none!important;margin-top:1.2rem}
-
-/* ===== GRAND FOOTER ===== */
-.footer-grand{background:var(--black);border-top:1px solid var(--border);padding:5.5rem 3rem 2rem;overflow:hidden}
-.fg-inner{max-width:1300px;margin:0 auto}
-.fg-word{font-family:'Cinzel',serif;font-size:clamp(4rem,14vw,12.5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.32);letter-spacing:.04em;text-transform:uppercase;user-select:none;margin-bottom:4rem;white-space:nowrap}
-.fg-cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border)}
-.fg-tag{font-size:.88rem;color:var(--gray);line-height:1.9;max-width:300px;font-weight:300}
-.fg-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:1.3rem}
-.fg-col a,.fg-item{display:block;font-size:.85rem;color:var(--gray);text-decoration:none;margin-bottom:.7rem;transition:color .2s;line-height:1.6}
-.fg-col a{width:fit-content}
-.fg-col a:hover{color:var(--gold)}
-.fg-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:2rem;font-size:.68rem;letter-spacing:1px;color:var(--gray)}
-.fg-bottom a{color:var(--gold);text-decoration:none}
-
-/* ===== FORM STATUS ===== */
-.form-status{display:none;border:1px solid var(--gold);padding:2.5rem;text-align:center}
-.form-status.show{display:block;animation:popIn .4s ease}
-.form-status h4{font-family:'Cinzel',serif;color:var(--gold);font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.8rem}
-.form-status p{font-size:.85rem;color:var(--gray);line-height:1.8}
-.form-error{color:#D9776B;font-size:.8rem;margin-top:.9rem;display:none;line-height:1.7}
-.form-error a{color:var(--gold);text-decoration:none}
-
-/* ===== V2: MOTION & TYPE ===== */
-nav{transition:transform .5s cubic-bezier(.22,1,.36,1),background .3s;top:14px;left:clamp(12px,3vw,34px);right:clamp(12px,3vw,34px);height:62px;border-radius:100px;border:1px solid rgba(201,168,76,.25);background:rgba(8,8,8,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.4);padding:0 1.6rem 0 2rem}
-nav.nav-hidden{transform:translateY(calc(-100% - 20px))}
-.nav-links a{position:relative}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
-h2.title{font-size:clamp(2.7rem,6vw,5.8rem)}
-.marquee{will-change:transform}
-.fg-word{transition:color .6s ease}
-.fg-word:hover{color:rgba(201,168,76,.22)}
-.fg-bottom #fgTime{letter-spacing:2px;text-transform:uppercase;font-size:.65rem}
-
-/* ===== A11Y + POLISH ===== */
-::selection{background:var(--gold);color:var(--black)}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.skip-link{position:fixed;top:-100px;left:1rem;z-index:10001;background:var(--gold);color:var(--black);padding:.7rem 1.2rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Cinzel',serif;transition:top .25s}
-.skip-link:focus{top:1rem}
-html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
-::-webkit-scrollbar{width:9px}
-::-webkit-scrollbar-track{background:var(--black)}
-::-webkit-scrollbar-thumb{background:var(--gold3)}
-.marquee:hover .mt{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){
-  .mt,.grain{animation:none}
+  .mt,.grain,.hero-scroll::after{animation:none}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
+  .nav-links{display:none}
   .nav-burger{display:block}
+  .chapter{padding:11vh 0}
+  .hero{min-height:100vh}
+  .manifesto-grid{grid-template-columns:1fr;gap:3rem}
+  .man-stats{flex-direction:row;border-left:none;border-top:1px solid var(--border);padding:2rem 0 0;gap:2rem;flex-wrap:wrap}
+  .work-grid{grid-template-columns:1fr}
+  .wcol:nth-child(2){margin-top:0}
+  .wtile-frame{height:56vh}
+  .svc-grid{grid-template-columns:1fr}
+  .visit-grid,.book-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
   .fg-cols{grid-template-columns:1fr;gap:2.4rem}
   .fg-word{font-size:clamp(3rem,17vw,6rem);margin-bottom:2.5rem}
   .footer-grand{padding:3.5rem 1.5rem 1.5rem}
   .pre-count{right:1.5rem;bottom:1.5rem}
-  nav{padding:0 1.5rem;height:60px}
-  .nav-links{display:none}
-  .story{height:auto}
-  .story-pin{position:relative;height:auto;display:block;padding:5rem 0}
-  #storyCanvas{display:none}
-  .story-vignette{display:none}
-  .beat{position:relative;opacity:1;transform:none;padding:3rem 1.5rem;pointer-events:auto;justify-content:flex-start}
-  .beat-inner{text-align:left!important;margin-left:0!important}
-  .beat-rail{display:none}
-  .section,.about-section,.reviews-section,.info-section,.cta-section,.booking-section{padding:4rem 1.5rem}
-  .services-grid,.about-inner,.rev-grid,.info-inner,.booking-inner{grid-template-columns:1fr;gap:3rem}
-  .portfolio-section{min-height:auto}
-  .portfolio-pin{position:relative;height:auto;padding:4rem 0}
-  .portfolio-track{flex-direction:column;gap:1.5rem;padding:0 1.5rem;transform:none!important;height:auto}
-  .portfolio-intro,.portfolio-cta{width:100%;padding:0}
-  .portfolio-tile{width:100%;height:60vh;max-height:520px}
-  .form-row{grid-template-columns:1fr}
+  .voice{padding-left:2.4rem}
 }
 </style>
 </head>
 <body>
 <script>document.body.classList.add('preloading','loading');</script>
-<a href="#services" class="skip-link">Skip to content</a>
+<a href="#work" class="skip-link">Skip to content</a>
 
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="pre-cols"><span></span><span></span><span></span><span></span><span></span></div>
@@ -416,17 +326,19 @@ html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
   </div>
   <div class="pre-count" id="preCount">0</div>
 </div>
-<noscript><style>.preloader{display:none}</style></noscript>
+<noscript><style>.preloader{display:none}#world{display:none}</style></noscript>
 
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="world-vignette" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="scroll-bar" id="scrollBar"></div>
 
 <nav>
   <div class="logo">Barry The Needle</div>
   <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Work</a></li>
-    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#voices">Voices</a></li>
     <li><a href="#booking">Book</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:.8rem">
@@ -436,237 +348,210 @@ html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Work</a>
   <a href="#services">Services</a>
-  <a href="#portfolio">Work</a>
-  <a href="#reviews">Reviews</a>
+  <a href="#voices">Voices</a>
   <a href="#booking">Book <em>Now</em></a>
   <a href="tel:6363957041" class="mm-phone">(636) 395-7041</a>
 </div>
 
-<!-- SCROLLYTELLING HERO -->
-<section class="story">
-  <div class="story-pin">
-    <canvas id="storyCanvas"></canvas>
-    <div class="story-vignette"></div>
+<main>
 
-    <div class="beat-rail" id="beatRail">
-      <div class="brail-dot active" data-beat="0">The Line</div>
-      <div class="brail-dot" data-beat="1">The Form</div>
-      <div class="brail-dot" data-beat="2">The Design</div>
-      <div class="brail-dot" data-beat="3">Services</div>
-      <div class="brail-dot" data-beat="4">The Studio</div>
-      <div class="brail-dot" data-beat="5">Book</div>
+<!-- CHAPTER I — HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">St. Charles, MO · 5.0★ · Fine Art Tattooing</div>
+    <h1>Ink That<em>Lasts Forever.</em></h1>
+    <p class="hero-sub">Barry brings passion, precision, and personal care to every tattoo. A trusted St. Charles studio where clients feel safe, heard, and leave with art they're proud to wear for life.</p>
+    <div class="hero-ctas">
+      <a href="tel:6363957041" class="btn-gold magnetic" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book a Session</span></a>
+      <a href="#work" class="btn-outline magnetic"><span class="magnetic-inner">See the Work</span></a>
     </div>
+    <div class="hero-meta">
+      <div class="hm"><div class="hm-num" data-count>5.0★</div><div class="hm-label">Perfect Rating</div></div>
+      <div class="hm"><div class="hm-num" data-count>44</div><div class="hm-label">Five-Star Reviews</div></div>
+      <div class="hm"><div class="hm-num" data-count>7</div><div class="hm-label">Days a Week</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
 
-    <div class="beat beat-1 in">
-      <div class="beat-inner">
-        <div class="beat-tag">St. Charles, MO · 5★ · Fine Art Tattooing</div>
-        <h1 class="beat-h1">Ink That<em>Lasts Forever.</em></h1>
-        <p class="beat-sub">Barry brings passion, precision, and personal care to every tattoo. A trusted St. Charles studio where clients feel safe, heard, and leave with art they're proud to wear for life.</p>
-        <div class="beat-btns">
-          <a href="tel:6363957041" class="btn-gold magnetic" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book a Session</span></a>
-          <a href="#services" class="btn-outline magnetic"><span class="magnetic-inner">View Services</span></a>
-        </div>
+<!-- CHAPTER II — MANIFESTO -->
+<section class="chapter manifesto" id="manifesto">
+  <div class="wrap">
+    <div class="manifesto-grid">
+      <div>
+        <div class="eyebrow">The Craft</div>
+        <h2 class="display" data-split>Custom Drawn.<br><em>Never traced.</em></h2>
+        <p class="lead">Every piece is drawn from scratch in conversation with you. No flash sheets, no stencil libraries — Barry sketches your idea until it's exactly what you wanted, then makes it permanent. His cover-up work is what built the reputation: designs that look beautiful on their own, not patches that hide something.</p>
       </div>
-    </div>
-
-    <div class="beat beat-2">
-      <div class="beat-inner">
-        <div class="beat-tag">The Process</div>
-        <h1 class="beat-h1">Custom Drawn.<em>Never Traced.</em></h1>
-        <p class="beat-sub" style="margin-left:auto">Every piece is drawn from scratch in conversation with you. No AI, no stencil libraries — Barry sketches your idea until it's exactly what you wanted.</p>
-        <div class="beat-stat" style="justify-content:flex-end">
-          <div class="beat-stat-item"><div class="bs-num">5.0★</div><div class="bs-label">Perfect · 44 Reviews</div></div>
-          <div class="beat-stat-item"><div class="bs-num">7days</div><div class="bs-label">Open Every Day</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="beat beat-3">
-      <div class="beat-inner">
-        <div class="beat-tag">The Work</div>
-        <h1 class="beat-h1">Specializes In<em>Cover-Ups.</em></h1>
-        <p class="beat-sub">Old tattoo you regret? Barry's cover-up work is what built the reputation — designs that actually look beautiful on top, not muddy gray patches that obviously hide something.</p>
-      </div>
-    </div>
-
-    <div class="beat beat-4">
-      <div class="beat-inner">
-        <div class="beat-tag">Six Things We Do</div>
-        <h1 class="beat-h1">More Than<em>Just Tattoos.</em></h1>
-        <p class="beat-sub" style="margin:0 auto 2rem">Custom designs, cover-ups, piercings, apprentice work, jewelry changes, free consultations. One studio, one focused team.</p>
-        <div class="beat-btns" style="justify-content:center">
-          <a href="#services" class="btn-gold magnetic"><span class="magnetic-inner">See All Services</span></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="beat beat-5">
-      <div class="beat-inner">
-        <div class="beat-tag">The Studio</div>
-        <h1 class="beat-h1">Private. Safe.<em>Welcoming.</em></h1>
-        <p class="beat-sub" style="margin-left:auto">Clients say it over and over: they feel comfortable here. Clean private studio, no judgement, music you pick, breaks when you need them.</p>
-      </div>
-    </div>
-
-    <div class="beat beat-6">
-      <div class="beat-inner">
-        <div class="beat-tag">Ready to Wear Art?</div>
-        <h1 class="beat-h1">Call Barry.</h1>
-        <a href="tel:6363957041" style="font-family:'Cinzel',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--gold);text-decoration:none;display:block;margin:1.5rem 0;letter-spacing:2px;text-shadow:0 4px 24px rgba(0,0,0,.5)">(636) 395-7041</a>
-        <div class="beat-btns" style="justify-content:center">
-          <a href="tel:6363957041" class="btn-gold magnetic" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book Now</span></a>
-          <a href="#booking" class="btn-outline magnetic"><span class="magnetic-inner">Send an Idea</span></a>
-        </div>
+      <div class="man-stats">
+        <div><div class="ms-num" data-count>5.0★</div><div class="ms-label">Google Rating · Perfect</div></div>
+        <div><div class="ms-num" data-count>44</div><div class="ms-label">Five-Star Reviews</div></div>
+        <div><div class="ms-num">Free</div><div class="ms-label">Consultations · Always</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="marquee">
+<div class="marquee" aria-hidden="true">
   <div class="mt">
     <div class="mi">Custom Tattoos</div><div class="mi">Cover Ups</div><div class="mi">Piercings</div><div class="mi">Consultations</div><div class="mi">All Styles</div><div class="mi">Walk-Ins Welcome</div>
     <div class="mi">Custom Tattoos</div><div class="mi">Cover Ups</div><div class="mi">Piercings</div><div class="mi">Consultations</div><div class="mi">All Styles</div><div class="mi">Walk-Ins Welcome</div>
   </div>
 </div>
 
-<!-- SERVICES -->
-<div class="section" id="services">
-  <div class="eyebrow">Services</div>
-  <h2 class="title" data-split>What We <em>Offer</em></h2>
-  <div class="services-grid">
-    <div class="svc"><div class="svc-name">Custom Tattoos</div><div class="svc-price">$150+</div><div class="svc-desc">Fully custom designs created in collaboration with you. Barry listens, sketches, and delivers art that tells your story.</div></div>
-    <div class="svc"><div class="svc-name">Cover Ups</div><div class="svc-price">$150+</div><div class="svc-desc">Expert cover-up work that actually looks beautiful. Barry specializes in transforming old tattoos into something you love.</div></div>
-    <div class="svc"><div class="svc-name">Piercings</div><div class="svc-price">$65+</div><div class="svc-desc">Professional body piercings with aftercare guidance. Lexi handles all piercing services with expertise and care.</div></div>
-    <div class="svc"><div class="svc-name">Apprentice Tattoos</div><div class="svc-price">$80</div><div class="svc-desc">Quality work at an accessible price. Great for smaller pieces and first tattoos under expert supervision.</div></div>
-    <div class="svc"><div class="svc-name">Jewelry Changes</div><div class="svc-price">$15</div><div class="svc-desc">Trouble with your piercing jewelry? We'll swap it out safely and quickly.</div></div>
-    <div class="svc"><div class="svc-name">Consultations</div><div class="svc-price">Free</div><div class="svc-desc">Book a free consultation to discuss your ideas. Barry will talk through your vision and provide honest guidance.</div></div>
-  </div>
-</div>
-
-<!-- PORTFOLIO: horizontal pinned scroll -->
-<section class="portfolio-section" id="portfolio">
-  <div class="portfolio-pin">
-    <div class="portfolio-track" id="portfolioTrack">
-      <div class="portfolio-intro">
-        <div class="eyebrow">Portfolio</div>
-        <h2 class="title" data-split>Work That <em>Speaks.</em></h2>
-        <p>Every piece is custom-built around the person wearing it. Scroll through recent sessions — fine line, color realism, cover-ups, and traditional.</p>
-        <div class="portfolio-counter"><span id="ptileCount">01</span><div>Featured · Scroll →</div></div>
+<!-- CHAPTER III — WORK -->
+<section class="chapter" id="work">
+  <div class="chapter-word" aria-hidden="true">Work</div>
+  <div class="wrap">
+    <div class="work-head">
+      <div>
+        <div class="eyebrow">The Portfolio</div>
+        <h2 class="display" data-split>Work that <em>speaks.</em></h2>
       </div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">01</div><div class="ptile-info"><div class="ptile-style">Fine Line · Forearm</div><div class="ptile-name">Wildflower Study</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1542727365-19732a80dcfd?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">02</div><div class="ptile-info"><div class="ptile-style">Black & Grey · Sleeve</div><div class="ptile-name">Shadow Work</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">03</div><div class="ptile-info"><div class="ptile-style">Cover-Up · Shoulder</div><div class="ptile-name">Rebirth</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">04</div><div class="ptile-info"><div class="ptile-style">Traditional · Chest</div><div class="ptile-name">Old School Heart</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">05</div><div class="ptile-info"><div class="ptile-style">Neo-Traditional · Thigh</div><div class="ptile-name">Moth & Moon</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">06</div><div class="ptile-info"><div class="ptile-style">Script · Ribcage</div><div class="ptile-name">For Those Lost</div></div></div>
-      <div class="portfolio-cta">
-        <h3>Want to start <em>yours?</em></h3>
-        <p>Bring a reference, a half-formed idea, or just a feeling. Barry builds the rest with you.</p>
-        <a href="#booking" class="btn-gold magnetic"><span class="magnetic-inner">Start the Conversation</span></a>
+      <p>Every piece is custom-built around the person wearing it. Fine line, color realism, cover-ups, traditional — recent sessions below.</p>
+    </div>
+    <div class="work-grid">
+      <div class="wcol">
+        <figure class="wtile" role="img" aria-label="Tattoo: Wildflower Study">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">01</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Fine Line · Forearm</div><div class="wtile-name">Wildflower Study</div></figcaption>
+        </figure>
+        <figure class="wtile" role="img" aria-label="Tattoo: Rebirth">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">03</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Cover-Up · Shoulder</div><div class="wtile-name">Rebirth</div></figcaption>
+        </figure>
+        <figure class="wtile" role="img" aria-label="Tattoo: Moth and Moon">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">05</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Neo-Traditional · Thigh</div><div class="wtile-name">Moth &amp; Moon</div></figcaption>
+        </figure>
+      </div>
+      <div class="wcol">
+        <figure class="wtile" role="img" aria-label="Tattoo: Shadow Work">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1542727365-19732a80dcfd?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">02</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Black &amp; Grey · Sleeve</div><div class="wtile-name">Shadow Work</div></figcaption>
+        </figure>
+        <figure class="wtile" role="img" aria-label="Tattoo: Old School Heart">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">04</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Traditional · Chest</div><div class="wtile-name">Old School Heart</div></figcaption>
+        </figure>
+        <figure class="wtile" role="img" aria-label="Tattoo: For Those Lost">
+          <div class="wtile-frame"><div class="wtile-bg" data-parallax style="background-image:url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1000&q=80&auto=format&fit=crop')"></div></div>
+          <div class="wtile-num">06</div>
+          <figcaption class="wtile-info"><div class="wtile-style">Script · Ribcage</div><div class="wtile-name">For Those Lost</div></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="work-cta">
+      <a href="#booking" class="btn-gold magnetic"><span class="magnetic-inner">Start Yours</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER IV — SERVICES -->
+<section class="chapter" id="services">
+  <div class="chapter-word" aria-hidden="true">Ritual</div>
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <h2 class="display" data-split>What we <em>offer.</em></h2>
+    <div class="svc-grid">
+      <div class="svc glass"><div class="svc-idx">No. 01</div><div class="svc-name">Custom Tattoos</div><div class="svc-price">from $150</div><div class="svc-desc">Fully custom designs created in collaboration with you. Barry listens, sketches, and delivers art that tells your story.</div></div>
+      <div class="svc glass"><div class="svc-idx">No. 02</div><div class="svc-name">Cover Ups</div><div class="svc-price">from $150</div><div class="svc-desc">Expert cover-up work that actually looks beautiful. Barry specializes in transforming old tattoos into something you love.</div></div>
+      <div class="svc glass"><div class="svc-idx">No. 03</div><div class="svc-name">Piercings</div><div class="svc-price">from $65</div><div class="svc-desc">Professional body piercings with aftercare guidance. Lexi handles all piercing services with expertise and care.</div></div>
+      <div class="svc glass"><div class="svc-idx">No. 04</div><div class="svc-name">Apprentice Tattoos</div><div class="svc-price">$80</div><div class="svc-desc">Quality work at an accessible price. Great for smaller pieces and first tattoos under expert supervision.</div></div>
+      <div class="svc glass"><div class="svc-idx">No. 05</div><div class="svc-name">Jewelry Changes</div><div class="svc-price">$15</div><div class="svc-desc">Trouble with your piercing jewelry? We'll swap it out safely and quickly.</div></div>
+      <div class="svc glass"><div class="svc-idx">No. 06</div><div class="svc-name">Consultations</div><div class="svc-price">Free</div><div class="svc-desc">Book a free consultation to discuss your ideas. Barry will talk through your vision and provide honest guidance.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER V — VOICES -->
+<section class="chapter" id="voices">
+  <div class="chapter-word" aria-hidden="true">Voices</div>
+  <div class="wrap">
+    <div class="eyebrow">Client Voices</div>
+    <h2 class="display" data-split style="margin-bottom:10vh">They said it <em>better.</em></h2>
+    <blockquote class="voice"><p data-split>Barry is not only an incredibly talented tattoo artist, but he genuinely cares about his clients. We brainstormed together for over an hour. In the end I got an amazingly beautiful tattoo.</p><cite>Google Review</cite></blockquote>
+    <blockquote class="voice"><p data-split>The best tattoo artist in St. Charles County, hands down. I've received tattoos from Barry in three different shops and his new studio is by far the best.</p><cite>Google Review</cite></blockquote>
+    <blockquote class="voice"><p data-split>I always feel safe in his space, and heard. I have been to plenty of other artists — Barry's skill and passion are hard to find.</p><cite>Google Review</cite></blockquote>
+  </div>
+</section>
+
+<!-- CHAPTER VI — VISIT -->
+<section class="chapter" id="visit">
+  <div class="wrap">
+    <div class="eyebrow">The Studio</div>
+    <h2 class="display" data-split>Find <em>us.</em></h2>
+    <div class="visit-grid">
+      <div class="visit-card glass">
+        <h3>Visit</h3>
+        <div class="vrow"><span class="k">Address</span><span class="v">2048 Campus Dr<br>St. Charles, MO 63301</span></div>
+        <div class="vrow"><span class="k">Phone</span><span class="v"><a href="tel:6363957041">(636) 395-7041</a></span></div>
+        <div class="vrow"><span class="k">Booking</span><span class="v">Call, walk in, or book online</span></div>
+      </div>
+      <div class="visit-card glass">
+        <h3>Hours</h3>
+        <div class="vrow"><span class="k">Mon – Sat</span><span class="v">10:00 AM – 7:00 PM</span></div>
+        <div class="vrow"><span class="k">Sunday</span><span class="v">10:00 AM – 6:00 PM</span></div>
+        <div class="vrow"><span class="k">Shop Min.</span><span class="v">$80 · Sessions 1–8 hrs</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<div class="about-section" id="about">
-  <div class="about-inner">
-    <div>
-      <div class="eyebrow">The Studio</div>
-      <h2 class="title" data-split>More Than <em>Ink.</em></h2>
-      <p style="font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;margin-bottom:1.5rem">At Barrytheneedle Studio, every client matters deeply. Barry takes time before every session to truly understand your vision — then brings it to life with skill that's earned a perfect 5-star reputation.</p>
-      <div class="about-list">
-        <div class="al">Private, comfortable studio atmosphere</div>
-        <div class="al">Barry personally oversees every tattoo</div>
-        <div class="al">Specializes in difficult cover-up work</div>
-        <div class="al">Aftercare instructions always provided</div>
-        <div class="al">Walk-ins welcome based on availability</div>
+<!-- CHAPTER VII — BOOK -->
+<section class="chapter" id="booking">
+  <div class="chapter-word" aria-hidden="true">Begin</div>
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="book-side">
+        <div class="eyebrow">Request Appointment</div>
+        <h2 class="display" data-split>Book your <em>session.</em></h2>
+        <p style="margin-top:2rem">Fill out the form and Barry will call to confirm. Need to reach us sooner? <a href="tel:6363957041">(636) 395-7041</a></p>
       </div>
-    </div>
-    <div class="about-visual">
-      <div class="about-big">5★</div>
-      <div class="about-big-sub">44 Perfect Reviews</div>
-    </div>
-  </div>
-</div>
-
-<!-- REVIEWS -->
-<div class="reviews-section" id="reviews">
-  <div class="rev-inner">
-    <div class="eyebrow">Client Reviews</div>
-    <h2 class="title" data-split>What Clients <em>Say</em></h2>
-    <div class="rev-grid">
-      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Barry is not only an incredibly talented tattoo artist, but he genuinely cares about his clients. We brainstormed together for over an hour. In the end I got an amazingly beautiful tattoo."</p><div class="rev-author">— Google Review</div></div>
-      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Barry is the best Tattoo artist in St Charles County hands down. He is an amazing person and very talented. I've received tattoos from Barry in 3 different shops and his new studio is by far the best."</p><div class="rev-author">— Google Review</div></div>
-      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"I can't explain how much I love Barry and his shop. I always feel safe in his space and heard. I have been to plenty of other artists and Barry's skill and passion are hard to find."</p><div class="rev-author">— Google Review</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- INFO -->
-<div class="info-section" id="info">
-  <div class="info-inner">
-    <div>
-      <div class="eyebrow">Book Your Session</div>
-      <h2 class="title" data-split>Get In <em>Touch</em></h2>
-      <div class="info-block">
-        <div class="ib"><div><div class="ib-label">Phone</div><div class="ib-val">(636) 395-7041</div></div></div>
-        <div class="ib"><div><div class="ib-label">Location</div><div class="ib-val">2048 Campus Dr<br>St. Charles, MO 63301</div></div></div>
-        <div class="ib"><div><div class="ib-label">Booking</div><div class="ib-val">Call, walk-in, or book online via BookedIn</div></div></div>
-      </div>
-    </div>
-    <div>
-      <div class="eyebrow">Hours</div>
-      <h2 class="title" data-split>Studio <em>Hours</em></h2>
-      <div class="hours-list">
-        <div class="hr"><span class="hr-day">Mon – Sat</span><span class="hr-time">10:00 AM – 7:00 PM</span></div>
-        <div class="hr"><span class="hr-day">Sunday</span><span class="hr-time">10:00 AM – 6:00 PM</span></div>
-        <div class="hr"><span class="hr-day">Shop Min.</span><span class="hr-time">$80 · Sessions 1–8 hrs</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- BOOKING -->
-<div class="booking-section" id="booking">
-  <div class="booking-inner">
-    <div>
-      <div class="eyebrow">Request Appointment</div>
-      <h2 class="title" data-split>Book Your <em>Session</em></h2>
-      <p style="font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:380px;margin-bottom:2rem">Fill out the form and Barry will call to confirm. Need to reach us sooner? <a href="tel:6363957041" style="color:var(--gold);text-decoration:none">(636) 395-7041</a></p>
-    </div>
-    <div>
-      <form id="bookingForm" name="booking">
-        <input type="hidden" name="_subject" value="New booking — Barry the Needle"/><input type="hidden" name="_template" value="table"/><input type="hidden" name="_captcha" value="false"/>
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="form-row">
-          <div class="form-group"><label for="bName">Name</label><input type="text" id="bName" name="name" required placeholder="Your full name"/></div>
-          <div class="form-group"><label for="bPhone">Phone</label><input type="tel" id="bPhone" name="phone" required placeholder="(636) 000-0000"/></div>
+      <div>
+        <form id="bookingForm" name="booking" class="book-form glass">
+          <input type="hidden" name="_subject" value="New booking — Barry the Needle"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group"><label for="bName">Name</label><input type="text" id="bName" name="name" required placeholder="Your full name"/></div>
+            <div class="form-group"><label for="bPhone">Phone</label><input type="tel" id="bPhone" name="phone" required placeholder="(636) 000-0000"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="bService">Service</label><select id="bService" name="service" required><option value="" disabled selected>Select a service</option><option>Custom Tattoo</option><option>Cover Up</option><option>Piercing</option><option>Apprentice Tattoo</option><option>Jewelry Change</option><option>Consultation (Free)</option></select></div>
+            <div class="form-group"><label for="bDate">Preferred Date</label><input type="date" id="bDate" name="date"/></div>
+          </div>
+          <div class="form-group"><label for="bIdea">Describe Your Idea</label><textarea id="bIdea" name="idea" rows="4" placeholder="Style, size, placement, inspiration..."></textarea></div>
+          <button type="submit" class="btn-gold magnetic" style="width:100%;padding:17px;font-size:.82rem;letter-spacing:3px;border:none"><span class="magnetic-inner">Send Request</span></button>
+          <div class="form-error" id="formError" role="alert">Something went wrong — please call <a href="tel:6363957041">(636) 395-7041</a> instead.</div>
+        </form>
+        <div class="form-status" id="formStatus" role="status">
+          <h4>Request Received</h4>
+          <p>Barry will call you to confirm your session. Talk soon.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label for="bService">Service</label><select id="bService" name="service" required><option value="" disabled selected>Select a service</option><option>Custom Tattoo</option><option>Cover Up</option><option>Piercing</option><option>Apprentice Tattoo</option><option>Jewelry Change</option><option>Consultation (Free)</option></select></div>
-          <div class="form-group"><label for="bDate">Preferred Date</label><input type="date" id="bDate" name="date"/></div>
-        </div>
-        <div class="form-group"><label for="bIdea">Describe Your Idea</label><textarea id="bIdea" name="idea" rows="4" placeholder="Style, size, placement, inspiration..."></textarea></div>
-        <button type="submit" class="btn-gold magnetic" style="width:100%;padding:16px;font-size:.82rem;letter-spacing:3px;border:none"><span class="magnetic-inner">Send Request</span></button>
-        <div class="form-error" id="formError" role="alert">Something went wrong — please call <a href="tel:6363957041">(636) 395-7041</a> instead.</div>
-      </form>
-      <div class="form-status" id="formStatus" role="status">
-        <h4>Request Received</h4>
-        <p>Barry will call you to confirm your session. Talk soon.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CTA -->
-<div class="cta-section">
-  <h2>Ready to Wear<em>Art Forever?</em></h2>
-  <p>Call Barry today to book your session or schedule a free consultation. Walk-ins welcome based on availability.</p>
-  <a href="tel:6363957041" class="cta-phone">(636) 395-7041</a>
-  <a href="tel:6363957041" class="btn-gold magnetic" style="font-size:.85rem;padding:16px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book Your Session</span></a>
-</div>
+<!-- CHAPTER VIII — FINALE -->
+<section class="finale">
+  <div class="eyebrow" style="justify-content:center">The Dawn of Your Next Piece</div>
+  <h2>Wear Art<em>Forever.</em></h2>
+  <a href="tel:6363957041" class="finale-phone">(636) 395-7041</a>
+  <a href="tel:6363957041" class="btn-gold magnetic" style="font-size:.85rem;padding:17px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book Your Session</span></a>
+  <p>Walk-ins welcome based on availability. Free consultations, always.</p>
+</section>
+
+</main>
 
 <footer class="footer-grand">
   <div class="fg-inner">
@@ -678,9 +563,9 @@ html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
       </div>
       <div class="fg-col">
         <div class="fg-label">Explore</div>
+        <a href="#work">Work</a>
         <a href="#services">Services</a>
-        <a href="#portfolio">Work</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#voices">Voices</a>
         <a href="#booking">Book</a>
       </div>
       <div class="fg-col">
@@ -720,51 +605,74 @@ html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
 <!-- Lenis -->
 <script>
 (function(){if(!window.Lenis||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-var lenis=new Lenis({lerp:0.07,smoothWheel:true,smoothTouch:false,wheelMultiplier:0.85,touchMultiplier:1.5});
+var lenis=new Lenis({lerp:0.09,smoothWheel:true,smoothTouch:false,wheelMultiplier:0.9,touchMultiplier:1.5});
 window.__lenis=lenis;
 if(window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}else{function r(t){lenis.raf(t);requestAnimationFrame(r)}requestAnimationFrame(r)}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=document.querySelector(id);if(!t)return;e.preventDefault();lenis.scrollTo(t,{offset:-60,duration:1.2})})})})();
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=document.querySelector(id);if(!t)return;e.preventDefault();lenis.scrollTo(t,{offset:-90,duration:1.2})})})})();
 </script>
 
-<!-- SCROLLYTELLING: gold geometric design builds itself in 3D space -->
+<!-- ============================================================
+     THE WORLD — one continuous scene the whole page scrolls through.
+     Sky morphs from obsidian night to gold dawn; the sculpted gold
+     skull (Jake K-H, CC-BY, Poly Pizza) travels chapter to chapter
+     over a live mirror floor. Scroll progress drives everything.
+     ============================================================ -->
 <script>
 (function(){
-  if(!window.THREE||!window.gsap||!window.ScrollTrigger)return;
-  var canvas=document.getElementById('storyCanvas');
-  if(!canvas||window.innerWidth<=900)return;
+  if(!window.THREE){document.body.classList.add('no-webgl');return}
+  var canvas=document.getElementById('world');
+  if(!canvas)return;
+  try{var t0=document.createElement('canvas');if(!(t0.getContext('webgl')||t0.getContext('experimental-webgl'))){document.body.classList.add('no-webgl');canvas.style.display='none';return}}catch(e){document.body.classList.add('no-webgl');canvas.style.display='none';return}
 
-  var W=canvas.offsetWidth,H=canvas.offsetHeight;
-  var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+  var isMobile=window.matchMedia('(max-width:900px)').matches;
+  var RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var W=window.innerWidth,H=window.innerHeight;
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:!isMobile});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,isMobile?1:1.5));
   renderer.setSize(W,H);
-  renderer.setClearColor(0x080808,1);
-  renderer.shadowMap.enabled=true;
-  renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-  var scene=new THREE.Scene();
-  scene.fog=new THREE.Fog(0x080808,20,80);
-  var camera=new THREE.PerspectiveCamera(45,W/H,0.1,200);
-  camera.position.set(0,2,28);
-
-  // LIGHTING — dramatic 3-point: warm gold key + crimson rim + low ambient
-  var keyLight=new THREE.DirectionalLight(0xFFE8B0,1.4);
-  keyLight.position.set(10,15,10);
-  keyLight.castShadow=true;
-  keyLight.shadow.mapSize.width=1024;
-  keyLight.shadow.mapSize.height=1024;
-  keyLight.shadow.camera.left=-15;keyLight.shadow.camera.right=15;
-  keyLight.shadow.camera.top=15;keyLight.shadow.camera.bottom=-15;
-  keyLight.shadow.bias=-0.0008;
-  scene.add(keyLight);
-  scene.add(new THREE.AmbientLight(0x4A3A20,0.45));
-  var rim=new THREE.DirectionalLight(0xC9A84C,0.7);
-  rim.position.set(-8,3,-10);
-  scene.add(rim);
   if('outputColorSpace' in renderer){renderer.outputColorSpace=THREE.SRGBColorSpace}else{renderer.outputEncoding=THREE.sRGBEncoding}
-  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=1.05;
+
+  var scene=new THREE.Scene();
+  scene.fog=new THREE.Fog(0x0a0805,26,90);
+  var camera=new THREE.PerspectiveCamera(45,W/H,0.1,200);
+  camera.position.set(0,1.4,16);
+
+  // --- SKY: fullscreen gradient quad, colors lerped by scroll chapter ---
+  var bgScene=new THREE.Scene();
+  var bgCam=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  var skyMat=new THREE.ShaderMaterial({
+    uniforms:{
+      uTop:{value:new THREE.Color(0.013,0.011,0.016)},
+      uBot:{value:new THREE.Color(0.10,0.055,0.022)},
+      uGlow:{value:0.55},
+      uTime:{value:0}
+    },
+    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position,1.0);}',
+    fragmentShader:[
+      'precision highp float;',
+      'uniform vec3 uTop;uniform vec3 uBot;uniform float uGlow;uniform float uTime;varying vec2 vUv;',
+      'float rand(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'void main(){',
+      '  float g=smoothstep(0.0,1.0,vUv.y);',
+      '  vec3 col=mix(uBot,uTop,g);',
+      '  float horizon=pow(1.0-vUv.y,3.2);',
+      '  col+=vec3(0.85,0.62,0.25)*horizon*uGlow*0.5;',
+      '  float band=sin(vUv.y*3.0+uTime*0.05)*0.012;',
+      '  col+=band*uGlow;',
+      '  col+=(rand(vUv*vec2(W_,H_))-0.5)*0.012;'.replace('W_','913.0').replace('H_','417.0'),
+      '  gl_FragColor=vec4(col,1.0);',
+      '}'
+    ].join('\n')
+  });
+  bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),skyMat));
+
+  // --- ENV + LIGHTS ---
   (function(){
     var c=document.createElement('canvas');c.width=32;c.height=256;var g=c.getContext('2d');
     var gr=g.createLinearGradient(0,0,0,256);
-    gr.addColorStop(0,'#6a5a34');gr.addColorStop(0.42,'#100d07')   ;gr.addColorStop(0.48,'#caa75a');
+    gr.addColorStop(0,'#6a5a34');gr.addColorStop(0.42,'#100d07');gr.addColorStop(0.48,'#caa75a');
     gr.addColorStop(0.54,'#0a0805');gr.addColorStop(0.8,'#0c0a06');gr.addColorStop(1,'#050403');
     g.fillStyle=gr;g.fillRect(0,0,32,256);
     g.fillStyle='rgba(255,224,150,0.9)';g.fillRect(0,94,32,12);
@@ -772,46 +680,45 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     var pm=new THREE.PMREMGenerator(renderer);pm.compileEquirectangularShader();
     scene.environment=pm.fromEquirectangular(tex).texture;tex.dispose();pm.dispose();
   })();
+  var keyLight=new THREE.DirectionalLight(0xFFE8B0,1.5);
+  keyLight.position.set(10,14,10);
+  scene.add(keyLight);
+  scene.add(new THREE.AmbientLight(0x4A3A20,0.5));
+  var rim=new THREE.DirectionalLight(0xC9A84C,0.8);
+  rim.position.set(-8,4,-10);
+  scene.add(rim);
 
-  // PROCEDURAL DESIGN ELEMENTS — gold wireframe shapes that build up
-  // Each element appears at a specific scroll progress
-  var elements=[];
-
-  // FOCAL PIECE: a real sculpted SKULL in molten gold (skull003 by Jake K-H, CC-BY, via Poly Pizza)
+  // --- THE PIECE: sculpted gold skull (fallback: gold tattoo machine) ---
   var goldMat=new THREE.MeshStandardMaterial({color:0xCC9A2E,roughness:0.16,metalness:1.0,envMapIntensity:2.1});
   var goldL=new THREE.MeshStandardMaterial({color:0xE8C86A,roughness:0.13,metalness:1.0,envMapIntensity:2.2});
   var blackMat=new THREE.MeshStandardMaterial({color:0x141414,roughness:0.4,metalness:0.55,envMapIntensity:1.2});
   var chromeMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.1,metalness:1.0,envMapIntensity:2.2});
   var skullMat=new THREE.MeshStandardMaterial({color:0xD8A93C,roughness:0.24,metalness:1.0,envMapIntensity:2.0});
-  var machine=new THREE.Group();
-  machine.scale.setScalar(1.25);
-  machine.position.set(0,0.5,0);
-  scene.add(machine);
-  function buildFallbackMachine(){
-    machine.rotation.z=0.32;
-    var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;grip.castShadow=true;machine.add(grip);
-    var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;machine.add(gring);
-    var body=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.5,2.6,40),goldMat);body.position.y=2.95;body.castShadow=true;machine.add(body);
-    var cap=new THREE.Mesh(new THREE.SphereGeometry(0.62,28,20),goldL);cap.position.y=4.35;machine.add(cap);
-    var barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.2,1.7,32),chromeMat);barrel.position.y=-1.45;machine.add(barrel);
-    var collar=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.24,0.3,32),goldMat);collar.position.y=-0.7;machine.add(collar);
-    var tip=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.004,0.8,16),goldL);tip.position.y=-2.55;machine.add(tip);
+  var piece=new THREE.Group();
+  scene.add(piece);
+  function buildFallback(){
+    var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;piece.add(grip);
+    var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;piece.add(gring);
+    var body=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.5,2.6,40),goldMat);body.position.y=2.95;piece.add(body);
+    var cap=new THREE.Mesh(new THREE.SphereGeometry(0.62,28,20),goldL);cap.position.y=4.35;piece.add(cap);
+    var barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.2,1.7,32),chromeMat);barrel.position.y=-1.45;piece.add(barrel);
+    var tip=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.004,0.8,16),goldL);tip.position.y=-2.55;piece.add(tip);
   }
   if(THREE.GLTFLoader){
     new THREE.GLTFLoader().load('models/skull.glb',function(g){
       var obj=g.scene;
-      obj.traverse(function(n){if(n.isMesh){n.material=skullMat;n.castShadow=true}});
+      obj.traverse(function(n){if(n.isMesh){n.material=skullMat}});
       var box=new THREE.Box3().setFromObject(obj);
       var size=new THREE.Vector3();box.getSize(size);
       var center=new THREE.Vector3();box.getCenter(center);
-      var s=5.4/Math.max(size.x,size.y,size.z);
+      var s=5.6/Math.max(size.x,size.y,size.z);
       obj.scale.setScalar(s);
       obj.position.set(-center.x*s,-center.y*s,-center.z*s);
-      machine.add(obj);
-    },undefined,buildFallbackMachine);
-  }else{buildFallbackMachine()}
+      piece.add(obj);
+    },undefined,buildFallback);
+  }else{buildFallback()}
 
-  // Warm glow halo behind the skull (peachweb-style backlight)
+  // --- HALO backlight ---
   var haloTex=(function(){
     var c=document.createElement('canvas');c.width=c.height=256;var g=c.getContext('2d');
     var gr=g.createRadialGradient(128,128,0,128,128,128);
@@ -820,199 +727,153 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     return new THREE.CanvasTexture(c);
   })();
   var halo=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,transparent:true,opacity:0.8,blending:THREE.AdditiveBlending,depthWrite:false}));
-  halo.scale.set(24,24,1);
-  halo.position.set(0,1,-7);
   scene.add(halo);
 
-  // Element 2-5: orbital rings around the core
-  for(var i=0;i<4;i++){
-    var ringGeo=new THREE.TorusGeometry(5+i*1.5,0.06,8,80);
-    var ringMat=new THREE.MeshStandardMaterial({color:i%2?0xC9A84C:0xE8C87A,roughness:0.3,metalness:0.7,transparent:true,opacity:0});
-    var ring=new THREE.Mesh(ringGeo,ringMat);
-    ring.rotation.x=Math.PI/2.5+i*0.4;
-    ring.rotation.y=i*0.7;
-    scene.add(ring);
-    elements.push({mesh:ring,appearAt:0.12+i*0.06});
-  }
-
-  // MIRROR FLOOR — true planar reflection (peachweb-style); marble fallback if Reflector missing
-  if(THREE.Reflector){
-    var ground=new THREE.Reflector(new THREE.CircleGeometry(40,64),{
-      clipBias:0.003,
-      textureWidth:1024,
-      textureHeight:1024,
-      color:0x202018
-    });
-    ground.rotation.x=-Math.PI/2;
-    ground.position.y=-6;
-    scene.add(ground);
-  }else{
-    var floorTex=(function(){
-      var c=document.createElement('canvas');c.width=c.height=512;var g=c.getContext('2d');
-      g.fillStyle='#0c0b09';g.fillRect(0,0,512,512);
-      for(var i=0;i<14;i++){g.strokeStyle='rgba(201,168,76,'+(0.04+Math.random()*0.07).toFixed(3)+')';g.lineWidth=1+Math.random()*1.5;g.beginPath();var x=Math.random()*512,y=Math.random()*512;g.moveTo(x,y);for(var j=0;j<5;j++){x+=(Math.random()-0.5)*160;y+=(Math.random()-0.5)*160;g.lineTo(x,y);}g.stroke();}
-      var tex=new THREE.CanvasTexture(c);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(2,2);tex.anisotropy=4;
-      if('colorSpace' in tex){tex.colorSpace=THREE.SRGBColorSpace}else{tex.encoding=THREE.sRGBEncoding}
-      return tex;
-    })();
-    var ground=new THREE.Mesh(
-      new THREE.CircleGeometry(40,64),
-      new THREE.MeshStandardMaterial({map:floorTex,color:0xffffff,roughness:0.28,metalness:0.5,envMapIntensity:1.1})
+  // --- ORBIT RINGS (thin gold halo rings) ---
+  var rings=new THREE.Group();
+  for(var ri=0;ri<3;ri++){
+    var ring=new THREE.Mesh(
+      new THREE.TorusGeometry(5.2+ri*1.6,0.045,8,90),
+      new THREE.MeshStandardMaterial({color:ri%2?0xC9A84C:0xE8C87A,roughness:0.3,metalness:0.85,transparent:true,opacity:0.5})
     );
-    ground.rotation.x=-Math.PI/2;
-    ground.position.y=-6;
-    ground.receiveShadow=true;
-    scene.add(ground);
+    ring.rotation.x=Math.PI/2.4+ri*0.35;
+    ring.rotation.y=ri*0.6;
+    rings.add(ring);
+  }
+  scene.add(rings);
+
+  // --- MIRROR FLOOR ---
+  var floorY=-5.0;
+  if(THREE.Reflector&&!isMobile){
+    var mirror=new THREE.Reflector(new THREE.CircleGeometry(60,72),{clipBias:0.003,textureWidth:1024,textureHeight:1024,color:0x1e1812});
+    mirror.rotation.x=-Math.PI/2;
+    mirror.position.y=floorY;
+    scene.add(mirror);
+  }else{
+    var floor=new THREE.Mesh(new THREE.CircleGeometry(60,64),new THREE.MeshStandardMaterial({color:0x14100a,roughness:0.3,metalness:0.6,envMapIntensity:1.2}));
+    floor.rotation.x=-Math.PI/2;
+    floor.position.y=floorY;
+    scene.add(floor);
   }
 
-  // Floating gold dust particles
-  var DUST=160;
+  // --- GOLD DUST ---
+  var DUST=isMobile?90:240;
   var dpos=new Float32Array(DUST*3);
   var dvel=[];
   for(var i=0;i<DUST;i++){
-    dpos[i*3]=(Math.random()-.5)*50;
-    dpos[i*3+1]=(Math.random()-.5)*30;
-    dpos[i*3+2]=(Math.random()-.5)*30;
-    dvel.push({x:(Math.random()-.5)*.02,y:.008+Math.random()*.015,z:(Math.random()-.5)*.012});
+    dpos[i*3]=(Math.random()-.5)*60;
+    dpos[i*3+1]=(Math.random()-.5)*34;
+    dpos[i*3+2]=(Math.random()-.5)*34;
+    dvel.push({x:(Math.random()-.5)*.018,y:.008+Math.random()*.014,z:(Math.random()-.5)*.012});
   }
   var dgeo=new THREE.BufferGeometry();
   dgeo.setAttribute('position',new THREE.BufferAttribute(dpos,3));
   var softDot=(function(){
     var c=document.createElement('canvas');c.width=c.height=64;var g=c.getContext('2d');
-    var grd=g.createRadialGradient(32,32,0,32,32,32);
-    grd.addColorStop(0,'rgba(255,255,255,1)');grd.addColorStop(0.35,'rgba(255,255,255,.55)');grd.addColorStop(1,'rgba(255,255,255,0)');
-    g.fillStyle=grd;g.fillRect(0,0,64,64);
+    var gr=g.createRadialGradient(32,32,0,32,32,32);
+    gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(0.35,'rgba(255,255,255,.55)');gr.addColorStop(1,'rgba(255,255,255,0)');
+    g.fillStyle=gr;g.fillRect(0,0,64,64);
     return new THREE.CanvasTexture(c);
   })();
-  scene.add(new THREE.Points(dgeo,new THREE.PointsMaterial({map:softDot,color:0xC9A84C,size:1.15,transparent:true,opacity:0.8,sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending})));
+  scene.add(new THREE.Points(dgeo,new THREE.PointsMaterial({map:softDot,color:0xC9A84C,size:1.1,transparent:true,opacity:0.8,sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending})));
 
-  // STATE
-  var state={
-    camX:0,camY:2,camZ:28,
-    lookX:0,lookY:0,lookZ:0,
-    progress:0,  // drives element appearance
-    bgR:0.031,bgG:0.031,bgB:0.031
-  };
-  var _bg=new THREE.Color();
+  // --- CHAPTER KEYFRAMES (p = whole-page scroll progress) ---
+  // sky top rgb, sky bottom rgb, horizon glow, piece x/y/z, scale, ring opacity
+  var KF=[
+    {p:0.00,top:[0.013,0.011,0.016],bot:[0.100,0.055,0.022],glow:0.55,x:5.4, y:0.7,z:1.5, s:1.55,ro:0.45},
+    {p:0.12,top:[0.016,0.012,0.020],bot:[0.130,0.060,0.025],glow:0.65,x:-5.8,y:0.9,z:-0.5,s:1.20,ro:0.30},
+    {p:0.30,top:[0.008,0.007,0.012],bot:[0.060,0.035,0.040],glow:0.35,x:6.6, y:2.8,z:-5.0,s:0.80,ro:0.10},
+    {p:0.50,top:[0.012,0.010,0.018],bot:[0.090,0.050,0.050],glow:0.50,x:0.0, y:2.6,z:-8.5,s:2.15,ro:0.20},
+    {p:0.68,top:[0.030,0.016,0.020],bot:[0.200,0.085,0.035],glow:0.80,x:-5.4,y:1.1,z:-1.0,s:1.05,ro:0.35},
+    {p:0.88,top:[0.100,0.055,0.035],bot:[0.550,0.320,0.110],glow:1.00,x:0.0, y:1.5,z:1.0, s:1.50,ro:0.55},
+    {p:1.00,top:[0.120,0.070,0.045],bot:[0.620,0.380,0.140],glow:1.00,x:0.0, y:1.3,z:1.0, s:1.50,ro:0.55}
+  ];
+  function smooth(t){return t*t*(3-2*t)}
+  function sample(P){
+    var a=KF[0],b=KF[KF.length-1];
+    for(var i=0;i<KF.length-1;i++){if(P>=KF[i].p&&P<=KF[i+1].p){a=KF[i];b=KF[i+1];break}}
+    var span=b.p-a.p||1;
+    var t=smooth(Math.min(1,Math.max(0,(P-a.p)/span)));
+    function L(k){return a[k]+(b[k]-a[k])*t}
+    function L3(k){return [a[k][0]+(b[k][0]-a[k][0])*t,a[k][1]+(b[k][1]-a[k][1])*t,a[k][2]+(b[k][2]-a[k][2])*t]}
+    return {top:L3('top'),bot:L3('bot'),glow:L('glow'),x:L('x'),y:L('y'),z:L('z'),s:L('s'),ro:L('ro')}
+  }
 
-  // TIMELINE
-  var tl=gsap.timeline({
-    defaults:{ease:'power3.inOut'},
-    scrollTrigger:{
-      trigger:'.story',start:'top top',end:'bottom bottom',
-      scrub:0.6,pin:'.story-pin',anticipatePin:1,fastScrollEnd:true,
-      onUpdate:function(self){
-        var idx=Math.min(5,Math.floor(self.progress*6));
-        document.querySelectorAll('.beat').forEach(function(b,i){b.classList.toggle('in',i===idx)});
-        document.querySelectorAll('.brail-dot').forEach(function(d,i){d.classList.toggle('active',i===idx)});
-      }
-    }
-  });
-
-  tl.to(state,{camX:-3,camY:3,camZ:22,lookX:0,lookY:0,progress:0.18,duration:1.3},0)
-    .to(state,{camX:5,camY:1,camZ:18,lookX:2,lookY:0,progress:0.35,duration:1.4},'>-0.2')
-    .to(state,{camX:0,camY:-1,camZ:14,lookX:0,lookY:0,progress:0.65,duration:1.5},'>-0.2')
-    .to(state,{camX:-4,camY:5,camZ:20,lookX:0,lookY:0,progress:0.85,duration:1.5},'>-0.2')
-    .to(state,{camX:6,camY:2,camZ:24,lookX:0,lookY:0,progress:1.0,duration:1.5},'>-0.2')
-    .to(state,{camX:0,camY:3,camZ:32,lookX:0,lookY:0,duration:1.4,bgR:0.055,bgG:0.04,bgB:0.025},'>-0.3');
-
-  // Mouse parallax (lerped)
+  // --- Mouse parallax ---
   var pmx=0,pmy=0,ptx=0,pty=0;
   window.addEventListener('mousemove',function(e){
     ptx=(e.clientX/window.innerWidth-0.5)*2;
     pty=(e.clientY/window.innerHeight-0.5)*2;
   },{passive:true});
 
-  var clock=new THREE.Clock();
-  var heroVisible=true;
-  if('IntersectionObserver' in window){new IntersectionObserver(function(e){heroVisible=e[0].isIntersecting},{threshold:0.01}).observe(canvas)}
   window.addEventListener('resize',function(){
-    if(window.innerWidth<=900)return;
-    W=canvas.offsetWidth;H=canvas.offsetHeight;
+    W=window.innerWidth;H=window.innerHeight;
     renderer.setSize(W,H);camera.aspect=W/H;camera.updateProjectionMatrix();
   },{passive:true});
 
+  var clock=new THREE.Clock();
+  var P=0;
+  var hidden=false;
+  document.addEventListener('visibilitychange',function(){hidden=document.hidden});
+
   function render(){
     requestAnimationFrame(render);
-    if(!heroVisible)return;
+    if(hidden)return;
     var t=clock.getElapsedTime();
-    // Element appearance: fade in opacity, scale up as progress passes appearAt
-    elements.forEach(function(el){
-      var diff=(state.progress-el.appearAt)/0.1;
-      var op=Math.min(1,Math.max(0,diff));
-      el.mesh.material.opacity=op;
-      el.mesh.scale.setScalar(0.3+op*0.7);
-      el.mesh.material.needsUpdate=false;
-    });
-    // Slow turn + weightless float for the gold skull
-    machine.rotation.y=t*0.35;
-    machine.position.y=0.5+Math.sin(t*0.8)*0.35;
-    machine.rotation.z=Math.sin(t*0.5)*0.06;
-    // Dust drift
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-doc.clientHeight;
+    var targetP=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+    P+=(targetP-P)*0.055;
+    var k=sample(P);
+
+    skyMat.uniforms.uTop.value.setRGB(k.top[0],k.top[1],k.top[2]);
+    skyMat.uniforms.uBot.value.setRGB(k.bot[0],k.bot[1],k.bot[2]);
+    skyMat.uniforms.uGlow.value=k.glow;
+    skyMat.uniforms.uTime.value=t;
+    scene.fog.color.setRGB(k.bot[0]*0.9,k.bot[1]*0.9,k.bot[2]*0.9);
+
+    piece.position.set(k.x,k.y+Math.sin(t*0.8)*0.32,k.z);
+    piece.scale.setScalar(k.s);
+    piece.rotation.y=t*0.28+P*5.4;
+    piece.rotation.z=Math.sin(t*0.5)*0.05;
+
+    halo.position.set(k.x,k.y+0.4,k.z-6);
+    halo.scale.set(15*k.s,15*k.s,1);
+    halo.material.opacity=0.55+k.glow*0.3;
+
+    rings.position.set(k.x,k.y,k.z);
+    rings.scale.setScalar(Math.max(0.55,k.s*0.72));
+    rings.rotation.y=t*0.12;
+    rings.children.forEach(function(r,i){r.material.opacity=k.ro*(1-i*0.22)});
+
     var dp=dgeo.attributes.position.array;
     for(var i=0;i<DUST;i++){
       dp[i*3]+=dvel[i].x;dp[i*3+1]+=dvel[i].y;dp[i*3+2]+=dvel[i].z;
-      if(dp[i*3+1]>15)dp[i*3+1]=-15;
-      if(dp[i*3]>25)dp[i*3]=-25;
-      if(dp[i*3]<-25)dp[i*3]=25;
+      if(dp[i*3+1]>17)dp[i*3+1]=-17;
+      if(dp[i*3]>30)dp[i*3]=-30;
+      if(dp[i*3]<-30)dp[i*3]=30;
     }
     dgeo.attributes.position.needsUpdate=true;
 
     pmx+=(ptx-pmx)*0.04;pmy+=(pty-pmy)*0.04;
-    camera.position.set(state.camX+pmx*1.1,state.camY-pmy*0.7,state.camZ);
-    camera.lookAt(state.lookX,state.lookY,state.lookZ);
-    _bg.setRGB(state.bgR,state.bgG,state.bgB);
-    renderer.setClearColor(_bg,1);
-    scene.fog.color.copy(_bg);
+    camera.position.set(pmx*1.2,1.4-pmy*0.7,16);
+    camera.lookAt(0,0.6,0);
+
+    renderer.autoClear=true;
+    renderer.render(bgScene,bgCam);
+    renderer.autoClear=false;
+    renderer.clearDepth();
     renderer.render(scene,camera);
   }
   render();
-
-  document.querySelectorAll('.brail-dot').forEach(function(d){
-    d.addEventListener('click',function(){
-      var beat=parseInt(d.dataset.beat,10);
-      var story=document.querySelector('.story');
-      var rect=story.getBoundingClientRect();
-      var pageTop=window.scrollY+rect.top;
-      var sectionH=story.offsetHeight-window.innerHeight;
-      var targetY=pageTop+sectionH*(beat/5.5);
-      if(window.__lenis){window.__lenis.scrollTo(targetY,{duration:1.2})}else{window.scrollTo({top:targetY,behavior:'smooth'})}
-    });
-  });
 })();
 </script>
 
-<!-- Portfolio: horizontal pinned with dynamic sizing -->
-<script>
-(function(){
-  if(window.innerWidth<=900||!window.gsap||!window.ScrollTrigger)return;
-  var track=document.getElementById('portfolioTrack');
-  var section=document.querySelector('.portfolio-section');
-  if(!track||!section)return;
-  function calc(){return track.scrollWidth-window.innerWidth+48}
-  function sizeSection(){section.style.height=(calc()+window.innerHeight)+'px'}
-  sizeSection();
-  window.addEventListener('resize',sizeSection,{passive:true});
-  gsap.to(track,{x:function(){return -calc()},ease:'none',scrollTrigger:{trigger:section,start:'top top',end:function(){return '+='+calc()},scrub:0.4,pin:'.portfolio-pin',anticipatePin:1,fastScrollEnd:true,invalidateOnRefresh:true}});
-  var counter=document.getElementById('ptileCount');
-  var tiles=document.querySelectorAll('.portfolio-tile');
-  if(counter&&tiles.length){
-    ScrollTrigger.create({trigger:section,start:'top top',end:function(){return '+='+calc()},
-      onUpdate:function(self){var idx=Math.min(tiles.length,Math.max(1,Math.ceil(self.progress*tiles.length)));counter.textContent=(idx<10?'0':'')+idx}});
-  }
-  document.querySelectorAll('.ptile-bg').forEach(function(bg){
-    var url=(bg.style.backgroundImage||'').replace(/^url\(["']?/,'').replace(/["']?\)$/,'');
-    if(!url)return;var img=new Image();
-    img.onerror=function(){bg.style.display='none';var fb=bg.parentNode.querySelector('.ptile-fallback');if(fb)fb.style.display='flex'};
-    img.src=url;
-  });
-})();
-</script>
-
-<!-- Split text -->
+<!-- Split text + reveals + parallax tiles + counters -->
 <script>
 (function(){
   if(!window.gsap||!window.ScrollTrigger)return;
+  gsap.registerPlugin(ScrollTrigger);
   function split(el){
     if(el.dataset.splitDone)return;
     el.dataset.splitDone='1';
@@ -1030,16 +891,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     }
     Array.from(el.childNodes).forEach(proc);
     var chars=el.querySelectorAll('span > span');
-    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){chars.forEach(function(c,i){setTimeout(function(){c.style.transform='translateY(0)';c.style.opacity='1'},i*15)})}});
+    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){chars.forEach(function(c,i){setTimeout(function(){c.style.transform='translateY(0)';c.style.opacity='1'},i*14)})}});
   }
   document.querySelectorAll('[data-split]').forEach(split);
-  gsap.utils.toArray('.svc').forEach(function(c){gsap.fromTo(c,{y:24,opacity:0},{y:0,opacity:1,duration:.8,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 90%',once:true}})});
-  gsap.utils.toArray('.rev').forEach(function(c,i){gsap.fromTo(c,{y:24,opacity:0},{y:0,opacity:1,duration:.7,delay:i*0.1,ease:'power2.out',scrollTrigger:{trigger:'.rev-grid',start:'top 80%',once:true}})});
-  gsap.utils.toArray('.al').forEach(function(c,i){gsap.fromTo(c,{x:-15,opacity:0},{x:0,opacity:1,duration:.5,delay:i*0.08,ease:'power1.out',scrollTrigger:{trigger:'.about-list',start:'top 80%',once:true}})});
+  gsap.utils.toArray('.svc,.visit-card,.book-form').forEach(function(c){gsap.fromTo(c,{y:30,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 92%',once:true}})});
+  gsap.utils.toArray('.voice').forEach(function(c){gsap.fromTo(c,{y:30,opacity:0},{y:0,opacity:1,duration:.9,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 88%',once:true}})});
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    gsap.utils.toArray('[data-parallax]').forEach(function(bg){
+      gsap.fromTo(bg,{y:'-12%'},{y:'2%',ease:'none',scrollTrigger:{trigger:bg.parentNode,start:'top 100%',end:'bottom 0%',scrub:0.5}});
+    });
+    gsap.utils.toArray('.chapter-word').forEach(function(w){
+      gsap.fromTo(w,{y:60},{y:-60,ease:'none',scrollTrigger:{trigger:w.parentNode,start:'top 100%',end:'bottom 0%',scrub:0.5}});
+    });
+  }
+  // Count-up stats (text-node safe)
+  gsap.utils.toArray('[data-count]').forEach(function(el){
+    var node=el.firstChild;if(!node||node.nodeType!==3)return;
+    var m=node.nodeValue.trim().match(/^([\d.]+)(.*)$/);if(!m||!m[1])return;
+    var target=parseFloat(m[1]),dec=(m[1].split('.')[1]||'').length,suf=m[2]||'';
+    ScrollTrigger.create({trigger:el,start:'top 95%',once:true,onEnter:function(){
+      var o={v:0};gsap.to(o,{v:target,duration:1.6,ease:'power3.out',onUpdate:function(){node.nodeValue=o.v.toFixed(dec)+suf}});
+    }});
+  });
 })();
 </script>
 
-<!-- Magnetic -->
+<!-- Magnetic buttons -->
 <script>
 (function(){
   if(window.matchMedia('(pointer:coarse)').matches)return;
@@ -1055,7 +932,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
 })();
 </script>
 
-<!-- Booking form -->
+<!-- Booking form (FormSubmit) -->
 <script>
 (function(){
   var form=document.getElementById('bookingForm');
@@ -1076,10 +953,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
 })();
 </script>
 
-<!-- Preloader + mobile menu + a11y -->
+<!-- Preloader + smart nav + mobile menu + marquee skew + time -->
 <script>
 (function(){
-  // Preloader
   var pre=document.getElementById('preloader');
   var done=false;
   function finish(){
@@ -1113,6 +989,19 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     }
   }else{finish()}
 
+  // Smart nav
+  var nav=document.querySelector('nav'),lastY=window.scrollY||0;
+  if(nav){
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY||0;
+      var menu=document.getElementById('mobileMenu');
+      if(!(menu&&menu.classList.contains('open'))){
+        if(y>lastY&&y>320){nav.classList.add('nav-hidden')}else{nav.classList.remove('nav-hidden')}
+      }
+      lastY=y;
+    },{passive:true});
+  }
+
   // Mobile menu
   var burger=document.getElementById('navBurger'),menu=document.getElementById('mobileMenu');
   if(burger&&menu){
@@ -1129,37 +1018,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))setMenu(false)});
   }
 
-  // Portfolio tiles: accessible labels
-  document.querySelectorAll('.portfolio-tile').forEach(function(t){
-    var n=t.querySelector('.ptile-name');
-    if(n){t.setAttribute('role','img');t.setAttribute('aria-label','Tattoo: '+n.textContent)}
-  });
-  var sc=document.getElementById('storyCanvas');
-  if(sc)sc.setAttribute('aria-hidden','true');
-})();
-</script>
-
-<!-- V2: scroll choreography -->
-<script>
-(function(){
-  var RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  // Smart nav: hide on scroll down, show on scroll up
-  var nav=document.querySelector('nav'),lastY=window.scrollY||0;
-  if(nav){
-    window.addEventListener('scroll',function(){
-      var y=window.scrollY||0;
-      var menu=document.getElementById('mobileMenu');
-      if(!(menu&&menu.classList.contains('open'))){
-        if(y>lastY&&y>320){nav.classList.add('nav-hidden')}else{nav.classList.remove('nav-hidden')}
-      }
-      lastY=y;
-    },{passive:true});
-  }
-
   // Velocity-reactive marquee skew
   var mq=document.querySelector('.marquee');
-  if(mq&&!RM){
+  if(mq&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
     var cur=0,prev=window.scrollY||0;
     (function frame(){
       var y=window.scrollY||0,v=y-prev;prev=y;
@@ -1170,26 +1031,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     })();
   }
 
-  // Display titles drift on scroll
-  if(window.gsap&&window.ScrollTrigger&&!RM&&window.innerWidth>900){
-    gsap.utils.toArray('h2.title').forEach(function(t){
-      gsap.fromTo(t,{y:36},{y:-16,ease:'none',scrollTrigger:{trigger:t,start:'top 100%',end:'bottom 0%',scrub:0.5}});
-    });
-  }
-
-  // Count-up stats
-  if(window.gsap&&window.ScrollTrigger){
-    gsap.utils.toArray('.about-big').forEach(function(el){
-      var node=el.firstChild;if(!node||node.nodeType!==3)return;
-      var m=node.nodeValue.trim().match(/^([\d.]+)(.*)$/);if(!m||!m[1])return;
-      var target=parseFloat(m[1]),dec=(m[1].split('.')[1]||'').length,suf=m[2]||'';
-      ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:function(){
-        var o={v:0};gsap.to(o,{v:target,duration:1.6,ease:'power3.out',onUpdate:function(){node.nodeValue=o.v.toFixed(dec)+suf}});
-      }});
-    });
-  }
-
-  // Live local time in footer
+  // Live local time
   var ft=document.getElementById('fgTime');
   if(ft){
     function tick(){try{ft.textContent='St. Charles, MO · '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'})}catch(e){}}

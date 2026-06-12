@@ -15,14 +15,14 @@
 <meta name="geo.placename" content="St. Charles, Missouri">
 <meta name="geo.position" content="38.7931;-90.5074">
 <meta name="ICBM" content="38.7931, -90.5074">
-<link rel="canonical" href="https://barrytheneedle-tattoo-stl.netlify.app/">
+<link rel="canonical" href="https://ajakaiye23.github.io/barrytheneedle-tattoo/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business">
 <meta property="og:site_name" content="Barry the Needle">
 <meta property="og:title" content="Barry the Needle | Fine Art Tattoo Studio · St. Charles, MO">
 <meta property="og:description" content="A 5-star fine-art tattoo studio in St. Charles, MO. Custom tattoos, expert cover-ups, and a safe, welcoming space. Book your session today.">
-<meta property="og:url" content="https://barrytheneedle-tattoo-stl.netlify.app/">
+<meta property="og:url" content="https://ajakaiye23.github.io/barrytheneedle-tattoo/">
 <meta property="og:image" content="https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=1200&h=630&q=80&auto=format&fit=crop">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -44,11 +44,11 @@
 {
   "@context": "https://schema.org",
   "@type": "TattooParlor",
-  "@id": "https://barrytheneedle-tattoo-stl.netlify.app/#business",
+  "@id": "https://ajakaiye23.github.io/barrytheneedle-tattoo/#business",
   "name": "Barry the Needle",
   "alternateName": "Barrytheneedle Studio",
   "description": "Fine-art tattoo studio in St. Charles, MO specializing in custom tattoos and cover-up work.",
-  "url": "https://barrytheneedle-tattoo-stl.netlify.app/",
+  "url": "https://ajakaiye23.github.io/barrytheneedle-tattoo/",
   "telephone": "+1-636-395-7041",
   "image": "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?w=1200&h=630&q=80&auto=format&fit=crop",
   "priceRange": "$$",
@@ -282,13 +282,114 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}
 @keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 
+/* ===== PRELOADER ===== */
+.preloader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center}
+.pre-cols{position:absolute;inset:0;display:flex}
+.pre-cols span{flex:1;background:var(--black);transform-origin:top;transition:transform .75s cubic-bezier(.76,0,.24,1)}
+.pre-cols span:nth-child(2){transition-delay:.07s}
+.pre-cols span:nth-child(3){transition-delay:.14s}
+.pre-cols span:nth-child(4){transition-delay:.21s}
+.pre-cols span:nth-child(5){transition-delay:.28s}
+.preloader.done .pre-cols span{transform:scaleY(0)}
+.preloader.done{pointer-events:none}
+.pre-center{position:relative;z-index:2;text-align:center;transition:opacity .45s ease,transform .45s ease}
+.pre-word{font-family:'Cinzel',serif;font-size:clamp(1.3rem,4vw,2.4rem);letter-spacing:6px;text-transform:uppercase;color:var(--white);display:flex;justify-content:center;overflow:hidden;padding-bottom:.2em}
+.pre-word b{font-weight:600;display:inline-block;transform:translateY(130%);opacity:0;animation:preUp .9s cubic-bezier(.22,1,.36,1) forwards}
+.pre-word b.gold{color:var(--gold)}
+@keyframes preUp{to{transform:translateY(0);opacity:1}}
+.pre-line{height:1px;background:rgba(201,168,76,.4);margin:1.4rem auto 0;width:0;animation:preLine 1.6s cubic-bezier(.22,1,.36,1) .3s forwards}
+@keyframes preLine{to{width:100%}}
+.pre-count{position:absolute;bottom:2.2rem;right:3rem;z-index:2;font-family:'Cinzel',serif;font-size:clamp(2.6rem,7vw,5rem);color:var(--gold);line-height:1;transition:opacity .45s ease,transform .45s ease;font-variant-numeric:tabular-nums}
+.preloader.done .pre-center,.preloader.done .pre-count{opacity:0;transform:translateY(-26px)}
+body.loading{overflow:hidden}
+body.preloading .beat-1 .beat-tag,body.preloading .beat-1 .beat-h1,body.preloading .beat-1 .beat-sub,body.preloading .beat-1 .beat-btns{opacity:0;transform:translateY(44px)}
+.beat-1 .beat-tag,.beat-1 .beat-h1,.beat-1 .beat-sub,.beat-1 .beat-btns{transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)}
+.beat-1 .beat-h1{transition-delay:.1s}.beat-1 .beat-sub{transition-delay:.2s}.beat-1 .beat-btns{transition-delay:.3s}
+
+/* ===== FILM GRAIN ===== */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:150;pointer-events:none;opacity:.05;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="300" height="300" filter="url(%23n)" opacity="0.7"/></svg>');animation:grainShift 1.2s steps(6) infinite}
+@keyframes grainShift{0%{transform:translate(0,0)}16%{transform:translate(-2%,1%)}33%{transform:translate(1%,-2%)}50%{transform:translate(-1%,2%)}66%{transform:translate(2%,1%)}83%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+
+/* ===== MOBILE MENU ===== */
+.nav-burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;position:relative;padding:0}
+.nav-burger span{position:absolute;left:9px;right:9px;height:1.5px;background:var(--gold);transition:transform .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1)}
+.nav-burger span:first-child{top:16px}
+.nav-burger span:last-child{top:25px}
+.nav-burger.open span:first-child{top:20.5px;transform:rotate(45deg)}
+.nav-burger.open span:last-child{top:20.5px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:rgba(8,8,8,.985);z-index:99;display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:0 2rem;visibility:hidden;opacity:0;transition:opacity .45s ease,visibility 0s linear .45s}
+.mobile-menu.open{visibility:visible;opacity:1;transition:opacity .45s ease}
+.mobile-menu a{font-family:'Cinzel',serif;font-size:clamp(1.8rem,8vw,2.6rem);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:.55rem 0;border-bottom:1px solid var(--border);transform:translateY(30px);opacity:0;transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s ease}
+.mobile-menu.open a{transform:translateY(0);opacity:1}
+.mobile-menu.open a:nth-child(1){transition-delay:.08s}
+.mobile-menu.open a:nth-child(2){transition-delay:.14s}
+.mobile-menu.open a:nth-child(3){transition-delay:.2s}
+.mobile-menu.open a:nth-child(4){transition-delay:.26s}
+.mobile-menu.open a:nth-child(5){transition-delay:.32s}
+.mobile-menu a em{color:var(--gold);font-style:normal}
+.mm-phone{font-size:1.1rem!important;letter-spacing:4px!important;color:var(--gold)!important;border-bottom:none!important;margin-top:1.2rem}
+
+/* ===== GRAND FOOTER ===== */
+.footer-grand{background:var(--black);border-top:1px solid var(--border);padding:5.5rem 3rem 2rem;overflow:hidden}
+.fg-inner{max-width:1300px;margin:0 auto}
+.fg-word{font-family:'Cinzel',serif;font-size:clamp(4rem,14vw,12.5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.32);letter-spacing:.04em;text-transform:uppercase;user-select:none;margin-bottom:4rem;white-space:nowrap}
+.fg-cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border)}
+.fg-tag{font-size:.88rem;color:var(--gray);line-height:1.9;max-width:300px;font-weight:300}
+.fg-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:1.3rem}
+.fg-col a,.fg-item{display:block;font-size:.85rem;color:var(--gray);text-decoration:none;margin-bottom:.7rem;transition:color .2s;line-height:1.6}
+.fg-col a{width:fit-content}
+.fg-col a:hover{color:var(--gold)}
+.fg-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:2rem;font-size:.68rem;letter-spacing:1px;color:var(--gray)}
+.fg-bottom a{color:var(--gold);text-decoration:none}
+
+/* ===== FORM STATUS ===== */
+.form-status{display:none;border:1px solid var(--gold);padding:2.5rem;text-align:center}
+.form-status.show{display:block;animation:popIn .4s ease}
+.form-status h4{font-family:'Cinzel',serif;color:var(--gold);font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.8rem}
+.form-status p{font-size:.85rem;color:var(--gray);line-height:1.8}
+.form-error{color:#D9776B;font-size:.8rem;margin-top:.9rem;display:none;line-height:1.7}
+.form-error a{color:var(--gold);text-decoration:none}
+
+/* ===== V2: MOTION & TYPE ===== */
+nav{transition:transform .5s cubic-bezier(.22,1,.36,1),background .3s}
+nav.nav-hidden{transform:translateY(-100%)}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+h2.title{font-size:clamp(2.7rem,6vw,5.8rem)}
+.marquee{will-change:transform}
+.fg-word{transition:color .6s ease}
+.fg-word:hover{color:rgba(201,168,76,.22)}
+.fg-bottom #fgTime{letter-spacing:2px;text-transform:uppercase;font-size:.65rem}
+
+/* ===== A11Y + POLISH ===== */
+::selection{background:var(--gold);color:var(--black)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:10001;background:var(--gold);color:var(--black);padding:.7rem 1.2rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Cinzel',serif;transition:top .25s}
+.skip-link:focus{top:1rem}
+html{scrollbar-width:thin;scrollbar-color:var(--gold3) var(--black)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold3)}
+.marquee:hover .mt{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  .mt,.grain{animation:none}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
+  .nav-burger{display:block}
+  .fg-cols{grid-template-columns:1fr;gap:2.4rem}
+  .fg-word{font-size:clamp(3rem,17vw,6rem);margin-bottom:2.5rem}
+  .footer-grand{padding:3.5rem 1.5rem 1.5rem}
+  .pre-count{right:1.5rem;bottom:1.5rem}
   nav{padding:0 1.5rem;height:60px}
   .nav-links{display:none}
   .story{height:auto}
   .story-pin{position:relative;height:auto;display:block;padding:5rem 0}
-  #storyCanvas{position:relative;width:100%;height:60vh;display:block}
+  #storyCanvas{display:none}
+  .story-vignette{display:none}
   .beat{position:relative;opacity:1;transform:none;padding:3rem 1.5rem;pointer-events:auto;justify-content:flex-start}
   .beat-inner{text-align:left!important;margin-left:0!important}
   .beat-rail{display:none}
@@ -304,6 +405,20 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
 </style>
 </head>
 <body>
+<script>document.body.classList.add('preloading','loading');</script>
+<a href="#services" class="skip-link">Skip to content</a>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pre-cols"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="pre-center">
+    <div class="pre-word" id="preWord"></div>
+    <div class="pre-line"></div>
+  </div>
+  <div class="pre-count" id="preCount">0</div>
+</div>
+<noscript><style>.preloader{display:none}</style></noscript>
+
+<div class="grain" aria-hidden="true"></div>
 <div class="scroll-bar" id="scrollBar"></div>
 
 <nav>
@@ -314,8 +429,19 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#booking">Book</a></li>
   </ul>
-  <a href="tel:6363957041" class="nav-cta magnetic" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Now</a>
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <a href="tel:6363957041" class="nav-cta magnetic" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Book Now</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+  </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#portfolio">Work</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#booking">Book <em>Now</em></a>
+  <a href="tel:6363957041" class="mm-phone">(636) 395-7041</a>
+</div>
 
 <!-- SCROLLYTELLING HERO -->
 <section class="story">
@@ -433,7 +559,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
       <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">03</div><div class="ptile-info"><div class="ptile-style">Cover-Up · Shoulder</div><div class="ptile-name">Rebirth</div></div></div>
       <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">04</div><div class="ptile-info"><div class="ptile-style">Traditional · Chest</div><div class="ptile-name">Old School Heart</div></div></div>
       <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">05</div><div class="ptile-info"><div class="ptile-style">Neo-Traditional · Thigh</div><div class="ptile-name">Moth & Moon</div></div></div>
-      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1581309553233-d7d6dd03d8c7?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">06</div><div class="ptile-info"><div class="ptile-style">Script · Ribcage</div><div class="ptile-name">For Those Lost</div></div></div>
+      <div class="portfolio-tile"><div class="ptile-fallback">✦</div><div class="ptile-bg" style="background-image:url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=900&q=80&auto=format&fit=crop')"></div><div class="ptile-corner">06</div><div class="ptile-info"><div class="ptile-style">Script · Ribcage</div><div class="ptile-name">For Those Lost</div></div></div>
       <div class="portfolio-cta">
         <h3>Want to start <em>yours?</em></h3>
         <p>Bring a reference, a half-formed idea, or just a feeling. Barry builds the rest with you.</p>
@@ -511,9 +637,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
       <p style="font-size:.9rem;color:var(--gray);line-height:1.9;font-weight:300;max-width:380px;margin-bottom:2rem">Fill out the form and Barry will call to confirm. Need to reach us sooner? <a href="tel:6363957041" style="color:var(--gold);text-decoration:none">(636) 395-7041</a></p>
     </div>
     <div>
-      <form id="bookingForm" name="booking" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="booking"/>
-        <div style="display:none"><input name="bot-field"/></div>
+      <form id="bookingForm" name="booking">
+        <input type="hidden" name="_subject" value="New booking — Barry the Needle"/><input type="hidden" name="_template" value="table"/><input type="hidden" name="_captcha" value="false"/>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group"><label for="bName">Name</label><input type="text" id="bName" name="name" required placeholder="Your full name"/></div>
           <div class="form-group"><label for="bPhone">Phone</label><input type="tel" id="bPhone" name="phone" required placeholder="(636) 000-0000"/></div>
@@ -524,7 +650,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
         </div>
         <div class="form-group"><label for="bIdea">Describe Your Idea</label><textarea id="bIdea" name="idea" rows="4" placeholder="Style, size, placement, inspiration..."></textarea></div>
         <button type="submit" class="btn-gold magnetic" style="width:100%;padding:16px;font-size:.82rem;letter-spacing:3px;border:none"><span class="magnetic-inner">Send Request</span></button>
+        <div class="form-error" id="formError" role="alert">Something went wrong — please call <a href="tel:6363957041">(636) 395-7041</a> instead.</div>
       </form>
+      <div class="form-status" id="formStatus" role="status">
+        <h4>Request Received</h4>
+        <p>Barry will call you to confirm your session. Talk soon.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -537,9 +668,38 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
   <a href="tel:6363957041" class="btn-gold magnetic" style="font-size:.85rem;padding:16px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}"><span class="magnetic-inner">Book Your Session</span></a>
 </div>
 
-<footer>
-  <div class="fl">Barry The Needle</div>
-  <div class="fc">© 2026 Barrytheneedle Studio · 2048 Campus Dr, St. Charles, MO 63301</div>
+<footer class="footer-grand">
+  <div class="fg-inner">
+    <div class="fg-word" aria-hidden="true">Barry</div>
+    <div class="fg-cols">
+      <div>
+        <div class="fg-label">Barry The Needle</div>
+        <p class="fg-tag">Fine-art tattoo studio in St. Charles, MO. Custom pieces, expert cover-ups, and a space where every client feels at home.</p>
+      </div>
+      <div class="fg-col">
+        <div class="fg-label">Explore</div>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#booking">Book</a>
+      </div>
+      <div class="fg-col">
+        <div class="fg-label">Visit</div>
+        <div class="fg-item">2048 Campus Dr<br>St. Charles, MO 63301</div>
+        <a href="tel:6363957041">(636) 395-7041</a>
+      </div>
+      <div class="fg-col">
+        <div class="fg-label">Hours</div>
+        <div class="fg-item">Mon – Sat · 10am – 7pm</div>
+        <div class="fg-item">Sunday · 10am – 6pm</div>
+      </div>
+    </div>
+    <div class="fg-bottom">
+      <div>© 2026 Barrytheneedle Studio · 3D skull by <a href="https://poly.pizza/m/bjf0z6Qb9Tv" style="color:inherit">Jake K-H</a> (CC-BY)</div>
+      <div id="fgTime"></div>
+      <div>Site by <a href="mailto:blkg21@gmail.com">Ayokunlemi Ajakaiye</a></div>
+    </div>
+  </div>
 </footer>
 
 <!-- MODAL -->
@@ -548,9 +708,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:2.5rem
 
 <!-- CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/objects/Reflector.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <!-- Scroll progress -->
 <script>(function(){var bar=document.getElementById('scrollBar');function upd(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(window.scrollY/m)*100:0)+'%'}window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd,{passive:true});upd()})();</script>
@@ -615,23 +777,39 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   // Each element appears at a specific scroll progress
   var elements=[];
 
-  // FOCAL PIECE: a real gold/chrome TATTOO MACHINE (Barry the Needle)
+  // FOCAL PIECE: a real sculpted SKULL in molten gold (skull003 by Jake K-H, CC-BY, via Poly Pizza)
   var goldMat=new THREE.MeshStandardMaterial({color:0xCC9A2E,roughness:0.16,metalness:1.0,envMapIntensity:2.1});
   var goldL=new THREE.MeshStandardMaterial({color:0xE8C86A,roughness:0.13,metalness:1.0,envMapIntensity:2.2});
   var blackMat=new THREE.MeshStandardMaterial({color:0x141414,roughness:0.4,metalness:0.55,envMapIntensity:1.2});
   var chromeMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.1,metalness:1.0,envMapIntensity:2.2});
+  var skullMat=new THREE.MeshStandardMaterial({color:0xD8A93C,roughness:0.24,metalness:1.0,envMapIntensity:2.0});
   var machine=new THREE.Group();
-  var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;grip.castShadow=true;machine.add(grip);
-  var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;machine.add(gring);
-  var body=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.5,2.6,40),goldMat);body.position.y=2.95;body.castShadow=true;machine.add(body);
-  var cap=new THREE.Mesh(new THREE.SphereGeometry(0.62,28,20),goldL);cap.position.y=4.35;machine.add(cap);
-  var barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.2,1.7,32),chromeMat);barrel.position.y=-1.45;machine.add(barrel);
-  var collar=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.24,0.3,32),goldMat);collar.position.y=-0.7;machine.add(collar);
-  var tip=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.004,0.8,16),goldL);tip.position.y=-2.55;machine.add(tip);
   machine.scale.setScalar(1.25);
-  machine.rotation.z=0.32;
   machine.position.set(0,0.5,0);
   scene.add(machine);
+  function buildFallbackMachine(){
+    machine.rotation.z=0.32;
+    var grip=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.55,2.4,40),blackMat);grip.position.y=0.4;grip.castShadow=true;machine.add(grip);
+    var gring=new THREE.Mesh(new THREE.CylinderGeometry(0.57,0.57,0.4,40),goldMat);gring.position.y=1.35;machine.add(gring);
+    var body=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.5,2.6,40),goldMat);body.position.y=2.95;body.castShadow=true;machine.add(body);
+    var cap=new THREE.Mesh(new THREE.SphereGeometry(0.62,28,20),goldL);cap.position.y=4.35;machine.add(cap);
+    var barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.2,1.7,32),chromeMat);barrel.position.y=-1.45;machine.add(barrel);
+    var collar=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.24,0.3,32),goldMat);collar.position.y=-0.7;machine.add(collar);
+    var tip=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.004,0.8,16),goldL);tip.position.y=-2.55;machine.add(tip);
+  }
+  if(THREE.GLTFLoader){
+    new THREE.GLTFLoader().load('models/skull.glb',function(g){
+      var obj=g.scene;
+      obj.traverse(function(n){if(n.isMesh){n.material=skullMat;n.castShadow=true}});
+      var box=new THREE.Box3().setFromObject(obj);
+      var size=new THREE.Vector3();box.getSize(size);
+      var center=new THREE.Vector3();box.getCenter(center);
+      var s=5.4/Math.max(size.x,size.y,size.z);
+      obj.scale.setScalar(s);
+      obj.position.set(-center.x*s,-center.y*s,-center.z*s);
+      machine.add(obj);
+    },undefined,buildFallbackMachine);
+  }else{buildFallbackMachine()}
 
   // Element 2-5: orbital rings around the core
   for(var i=0;i<4;i++){
@@ -644,34 +822,35 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     elements.push({mesh:ring,appearAt:0.12+i*0.06});
   }
 
-  // Element 6-8: floating icosahedrons (the "elements" of the design)
-  for(var i=0;i<3;i++){
-    var icoGeo=new THREE.IcosahedronGeometry(0.8,0);
-    var icoMat=new THREE.MeshStandardMaterial({color:0xE8C87A,roughness:0.2,metalness:0.95,transparent:true,opacity:0});
-    var ico=new THREE.Mesh(icoGeo,icoMat);
-    var ang=i*Math.PI*2/3;
-    ico.position.set(Math.cos(ang)*8,Math.sin(ang)*2,Math.sin(ang)*5);
-    scene.add(ico);
-    elements.push({mesh:ico,appearAt:0.38+i*0.05});
+  // MIRROR FLOOR — true planar reflection (peachweb-style); marble fallback if Reflector missing
+  if(THREE.Reflector){
+    var ground=new THREE.Reflector(new THREE.CircleGeometry(40,64),{
+      clipBias:0.003,
+      textureWidth:1024,
+      textureHeight:1024,
+      color:0x202018
+    });
+    ground.rotation.x=-Math.PI/2;
+    ground.position.y=-6;
+    scene.add(ground);
+  }else{
+    var floorTex=(function(){
+      var c=document.createElement('canvas');c.width=c.height=512;var g=c.getContext('2d');
+      g.fillStyle='#0c0b09';g.fillRect(0,0,512,512);
+      for(var i=0;i<14;i++){g.strokeStyle='rgba(201,168,76,'+(0.04+Math.random()*0.07).toFixed(3)+')';g.lineWidth=1+Math.random()*1.5;g.beginPath();var x=Math.random()*512,y=Math.random()*512;g.moveTo(x,y);for(var j=0;j<5;j++){x+=(Math.random()-0.5)*160;y+=(Math.random()-0.5)*160;g.lineTo(x,y);}g.stroke();}
+      var tex=new THREE.CanvasTexture(c);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(2,2);tex.anisotropy=4;
+      if('colorSpace' in tex){tex.colorSpace=THREE.SRGBColorSpace}else{tex.encoding=THREE.sRGBEncoding}
+      return tex;
+    })();
+    var ground=new THREE.Mesh(
+      new THREE.CircleGeometry(40,64),
+      new THREE.MeshStandardMaterial({map:floorTex,color:0xffffff,roughness:0.28,metalness:0.5,envMapIntensity:1.1})
+    );
+    ground.rotation.x=-Math.PI/2;
+    ground.position.y=-6;
+    ground.receiveShadow=true;
+    scene.add(ground);
   }
-
-  // GROUND DISC — polished black-marble floor (subtle gold veining), glossy so it reflects the piece
-  var floorTex=(function(){
-    var c=document.createElement('canvas');c.width=c.height=512;var g=c.getContext('2d');
-    g.fillStyle='#0c0b09';g.fillRect(0,0,512,512);
-    for(var i=0;i<14;i++){g.strokeStyle='rgba(201,168,76,'+(0.04+Math.random()*0.07).toFixed(3)+')';g.lineWidth=1+Math.random()*1.5;g.beginPath();var x=Math.random()*512,y=Math.random()*512;g.moveTo(x,y);for(var j=0;j<5;j++){x+=(Math.random()-0.5)*160;y+=(Math.random()-0.5)*160;g.lineTo(x,y);}g.stroke();}
-    var tex=new THREE.CanvasTexture(c);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(2,2);tex.anisotropy=4;
-    if('colorSpace' in tex){tex.colorSpace=THREE.SRGBColorSpace}else{tex.encoding=THREE.sRGBEncoding}
-    return tex;
-  })();
-  var ground=new THREE.Mesh(
-    new THREE.CircleGeometry(40,64),
-    new THREE.MeshStandardMaterial({map:floorTex,color:0xffffff,roughness:0.28,metalness:0.5,envMapIntensity:1.1})
-  );
-  ground.rotation.x=-Math.PI/2;
-  ground.position.y=-6;
-  ground.receiveShadow=true;
-  scene.add(ground);
 
   // Floating gold dust particles
   var DUST=160;
@@ -685,7 +864,14 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   }
   var dgeo=new THREE.BufferGeometry();
   dgeo.setAttribute('position',new THREE.BufferAttribute(dpos,3));
-  scene.add(new THREE.Points(dgeo,new THREE.PointsMaterial({color:0xC9A84C,size:0.6,transparent:true,opacity:0.55,sizeAttenuation:true})));
+  var softDot=(function(){
+    var c=document.createElement('canvas');c.width=c.height=64;var g=c.getContext('2d');
+    var grd=g.createRadialGradient(32,32,0,32,32,32);
+    grd.addColorStop(0,'rgba(255,255,255,1)');grd.addColorStop(0.35,'rgba(255,255,255,.55)');grd.addColorStop(1,'rgba(255,255,255,0)');
+    g.fillStyle=grd;g.fillRect(0,0,64,64);
+    return new THREE.CanvasTexture(c);
+  })();
+  scene.add(new THREE.Points(dgeo,new THREE.PointsMaterial({map:softDot,color:0xC9A84C,size:1.15,transparent:true,opacity:0.8,sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending})));
 
   // STATE
   var state={
@@ -701,7 +887,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     defaults:{ease:'power3.inOut'},
     scrollTrigger:{
       trigger:'.story',start:'top top',end:'bottom bottom',
-      scrub:1.2,pin:'.story-pin',anticipatePin:1,fastScrollEnd:true,
+      scrub:0.6,pin:'.story-pin',anticipatePin:1,fastScrollEnd:true,
       onUpdate:function(self){
         var idx=Math.min(5,Math.floor(self.progress*6));
         document.querySelectorAll('.beat').forEach(function(b,i){b.classList.toggle('in',i===idx)});
@@ -716,6 +902,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     .to(state,{camX:-4,camY:5,camZ:20,lookX:0,lookY:0,progress:0.85,duration:1.5},'>-0.2')
     .to(state,{camX:6,camY:2,camZ:24,lookX:0,lookY:0,progress:1.0,duration:1.5},'>-0.2')
     .to(state,{camX:0,camY:3,camZ:32,lookX:0,lookY:0,duration:1.4,bgR:0.055,bgG:0.04,bgB:0.025},'>-0.3');
+
+  // Mouse parallax (lerped)
+  var pmx=0,pmy=0,ptx=0,pty=0;
+  window.addEventListener('mousemove',function(e){
+    ptx=(e.clientX/window.innerWidth-0.5)*2;
+    pty=(e.clientY/window.innerHeight-0.5)*2;
+  },{passive:true});
 
   var clock=new THREE.Clock();
   var heroVisible=true;
@@ -738,19 +931,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
       el.mesh.scale.setScalar(0.3+op*0.7);
       el.mesh.material.needsUpdate=false;
     });
-    // Slowly turn the tattoo machine (keeps its diagonal tilt)
-    machine.rotation.y=t*0.4;
-    // Orbital motion for icosahedrons
-    elements.forEach(function(el,i){
-      if(i>=4){  // icos (rings occupy indices 0-3)
-        var ang=(i-5)*Math.PI*2/3+t*0.4;
-        el.mesh.position.x=Math.cos(ang)*8;
-        el.mesh.position.z=Math.sin(ang)*5;
-        el.mesh.position.y=Math.sin(ang*2)*2;
-        el.mesh.rotation.x=t*0.5;
-        el.mesh.rotation.y=t*0.7;
-      }
-    });
+    // Slow turn + weightless float for the gold skull
+    machine.rotation.y=t*0.35;
+    machine.position.y=0.5+Math.sin(t*0.8)*0.35;
+    machine.rotation.z=Math.sin(t*0.5)*0.06;
     // Dust drift
     var dp=dgeo.attributes.position.array;
     for(var i=0;i<DUST;i++){
@@ -761,7 +945,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     }
     dgeo.attributes.position.needsUpdate=true;
 
-    camera.position.set(state.camX,state.camY,state.camZ);
+    pmx+=(ptx-pmx)*0.04;pmy+=(pty-pmy)*0.04;
+    camera.position.set(state.camX+pmx*1.1,state.camY-pmy*0.7,state.camZ);
     camera.lookAt(state.lookX,state.lookY,state.lookZ);
     _bg.setRGB(state.bgR,state.bgG,state.bgB);
     renderer.setClearColor(_bg,1);
@@ -867,9 +1052,136 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
     var btn=form.querySelector('button[type=submit]');
     var inner=btn.querySelector('.magnetic-inner')||btn;
     var orig=inner.textContent;inner.textContent='Sending...';btn.disabled=true;
-    try{await fetch('/',{method:'POST',body:new FormData(form)});alert('Request received! Barry will call to confirm.')}
-    catch(err){inner.textContent=orig;btn.disabled=false;alert('Something went wrong. Call (636) 395-7041.')}
+    var errEl=document.getElementById('formError');
+    try{
+      var res=await fetch('https://formsubmit.co/ajax/blkg21@gmail.com',{method:'POST',body:new FormData(form)});
+      if(!res.ok)throw new Error('submit failed');
+      form.style.display='none';
+      var st=document.getElementById('formStatus');if(st)st.classList.add('show');
+    }catch(err){inner.textContent=orig;btn.disabled=false;if(errEl)errEl.style.display='block'}
   });
+})();
+</script>
+
+<!-- Preloader + mobile menu + a11y -->
+<script>
+(function(){
+  // Preloader
+  var pre=document.getElementById('preloader');
+  var done=false;
+  function finish(){
+    if(done)return;done=true;
+    if(pre)pre.classList.add('done');
+    document.body.classList.remove('loading');
+    setTimeout(function(){document.body.classList.remove('preloading')},60);
+    setTimeout(function(){if(pre&&pre.parentNode)pre.parentNode.removeChild(pre)},1300);
+  }
+  if(pre){
+    var word=document.getElementById('preWord');
+    if(word){
+      'BARRY THE NEEDLE'.split('').forEach(function(ch,i){
+        var b=document.createElement('b');
+        if(ch===' '){b.innerHTML='&nbsp;'}else{b.textContent=ch;if(i>=6&&i<=8)b.className='gold'}
+        b.style.animationDelay=(0.12+i*0.045)+'s';
+        word.appendChild(b);
+      });
+    }
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){finish()}
+    else{
+      var count=document.getElementById('preCount'),start=null,DUR=1700;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min(1,(ts-start)/DUR),e=1-Math.pow(1-p,3);
+        if(count)count.textContent=Math.round(e*100);
+        if(p<1)requestAnimationFrame(step);else setTimeout(finish,300);
+      }
+      requestAnimationFrame(step);
+      setTimeout(finish,4500);
+    }
+  }else{finish()}
+
+  // Mobile menu
+  var burger=document.getElementById('navBurger'),menu=document.getElementById('mobileMenu');
+  if(burger&&menu){
+    function setMenu(open){
+      burger.classList.toggle('open',open);
+      menu.classList.toggle('open',open);
+      burger.setAttribute('aria-expanded',open?'true':'false');
+      burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+      document.body.style.overflow=open?'hidden':'';
+      if(window.__lenis){open?window.__lenis.stop():window.__lenis.start()}
+    }
+    burger.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))setMenu(false)});
+  }
+
+  // Portfolio tiles: accessible labels
+  document.querySelectorAll('.portfolio-tile').forEach(function(t){
+    var n=t.querySelector('.ptile-name');
+    if(n){t.setAttribute('role','img');t.setAttribute('aria-label','Tattoo: '+n.textContent)}
+  });
+  var sc=document.getElementById('storyCanvas');
+  if(sc)sc.setAttribute('aria-hidden','true');
+})();
+</script>
+
+<!-- V2: scroll choreography -->
+<script>
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // Smart nav: hide on scroll down, show on scroll up
+  var nav=document.querySelector('nav'),lastY=window.scrollY||0;
+  if(nav){
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY||0;
+      var menu=document.getElementById('mobileMenu');
+      if(!(menu&&menu.classList.contains('open'))){
+        if(y>lastY&&y>320){nav.classList.add('nav-hidden')}else{nav.classList.remove('nav-hidden')}
+      }
+      lastY=y;
+    },{passive:true});
+  }
+
+  // Velocity-reactive marquee skew
+  var mq=document.querySelector('.marquee');
+  if(mq&&!RM){
+    var cur=0,prev=window.scrollY||0;
+    (function frame(){
+      var y=window.scrollY||0,v=y-prev;prev=y;
+      var t=Math.max(-8,Math.min(8,v*0.35));
+      cur+=(t-cur)*0.1;
+      mq.style.transform='skewX('+cur.toFixed(2)+'deg)';
+      requestAnimationFrame(frame);
+    })();
+  }
+
+  // Display titles drift on scroll
+  if(window.gsap&&window.ScrollTrigger&&!RM&&window.innerWidth>900){
+    gsap.utils.toArray('h2.title').forEach(function(t){
+      gsap.fromTo(t,{y:36},{y:-16,ease:'none',scrollTrigger:{trigger:t,start:'top 100%',end:'bottom 0%',scrub:0.5}});
+    });
+  }
+
+  // Count-up stats
+  if(window.gsap&&window.ScrollTrigger){
+    gsap.utils.toArray('.about-big').forEach(function(el){
+      var node=el.firstChild;if(!node||node.nodeType!==3)return;
+      var m=node.nodeValue.trim().match(/^([\d.]+)(.*)$/);if(!m||!m[1])return;
+      var target=parseFloat(m[1]),dec=(m[1].split('.')[1]||'').length,suf=m[2]||'';
+      ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:function(){
+        var o={v:0};gsap.to(o,{v:target,duration:1.6,ease:'power3.out',onUpdate:function(){node.nodeValue=o.v.toFixed(dec)+suf}});
+      }});
+    });
+  }
+
+  // Live local time in footer
+  var ft=document.getElementById('fgTime');
+  if(ft){
+    function tick(){try{ft.textContent='St. Charles, MO · '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'})}catch(e){}}
+    tick();setInterval(tick,30000);
+  }
 })();
 </script>
 

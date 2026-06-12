@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://barrytheneedle-tattoo-stl.netlify.app/sitemap.xml
+Sitemap: https://ajakaiye23.github.io/barrytheneedle-tattoo/sitemap.xml

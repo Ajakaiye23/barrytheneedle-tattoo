@@ -351,8 +351,8 @@ body.preloading .beat-1 .beat-tag,body.preloading .beat-1 .beat-h1,body.preloadi
 .form-error a{color:var(--gold);text-decoration:none}
 
 /* ===== V2: MOTION & TYPE ===== */
-nav{transition:transform .5s cubic-bezier(.22,1,.36,1),background .3s}
-nav.nav-hidden{transform:translateY(-100%)}
+nav{transition:transform .5s cubic-bezier(.22,1,.36,1),background .3s;top:14px;left:clamp(12px,3vw,34px);right:clamp(12px,3vw,34px);height:62px;border-radius:100px;border:1px solid rgba(201,168,76,.25);background:rgba(8,8,8,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.4);padding:0 1.6rem 0 2rem}
+nav.nav-hidden{transform:translateY(calc(-100% - 20px))}
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
@@ -810,6 +810,19 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
       machine.add(obj);
     },undefined,buildFallbackMachine);
   }else{buildFallbackMachine()}
+
+  // Warm glow halo behind the skull (peachweb-style backlight)
+  var haloTex=(function(){
+    var c=document.createElement('canvas');c.width=c.height=256;var g=c.getContext('2d');
+    var gr=g.createRadialGradient(128,128,0,128,128,128);
+    gr.addColorStop(0,'rgba(255,214,130,0.85)');gr.addColorStop(0.4,'rgba(201,168,76,0.3)');gr.addColorStop(1,'rgba(201,168,76,0)');
+    g.fillStyle=gr;g.fillRect(0,0,256,256);
+    return new THREE.CanvasTexture(c);
+  })();
+  var halo=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,transparent:true,opacity:0.8,blending:THREE.AdditiveBlending,depthWrite:false}));
+  halo.scale.set(24,24,1);
+  halo.position.set(0,1,-7);
+  scene.add(halo);
 
   // Element 2-5: orbital rings around the core
   for(var i=0;i<4;i++){
